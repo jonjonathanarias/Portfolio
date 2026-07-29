@@ -51,7 +51,6 @@
       width: 300px;
       transition: all ease-in-out 0.5s;
       z-index: 9997;
-      transition: all 0.5s;
       padding: 0 15px;
       background: #090d16;
       overflow-y: auto;
@@ -77,22 +76,24 @@
       color: #fff;
     }
 
-    .profile .social-links a {
+    .profile .social-links a, .profile .social-links button {
       font-size: 18px;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: #1e293b;
       color: #fff;
-      line-height: 1;
-      padding: 10px 0;
       margin-right: 6px;
       border-radius: 50%;
-      text-align: center;
+      border: none;
       width: 38px;
       height: 38px;
       transition: 0.3s;
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    .profile .social-links a:hover {
+    .profile .social-links a:hover, .profile .social-links button:hover {
       background: var(--primary-color);
       color: #fff;
     }
@@ -193,6 +194,8 @@
       transition: 0.3s;
       display: inline-block;
       margin-right: 12px;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-custom:hover {
@@ -318,6 +321,21 @@
       color: var(--primary-color);
     }
 
+    .form-control-custom {
+      background-color: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      border-radius: 8px;
+      padding: 12px 15px;
+    }
+
+    .form-control-custom:focus {
+      background-color: rgba(15, 23, 42, 1);
+      border-color: var(--primary-color);
+      color: var(--text-main);
+      box-shadow: none;
+    }
+
     /* Mobile Nav Toggle */
     .mobile-nav-toggle {
       position: fixed;
@@ -357,7 +375,7 @@
         <div class="social-links text-center mt-3">
           <a href="https://github.com/jonjonathanarias" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
           <a href="https://linkedin.com/in/jon-jonathan-arias" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-          <a href="mailto:jonjonathanarias1@gmail.com" title="Email"><i class="bi bi-envelope"></i></a>
+          <button type="button" onclick="sendMail()" title="Enviar Correo"><i class="bi bi-envelope"></i></button>
         </div>
       </div>
 
@@ -373,7 +391,7 @@
       </nav>
 
       <div class="mt-auto mb-4 text-center">
-        <a href="CV_Jon_Jonathan_Arias_2026.pdf" target="_blank" class="btn btn-sm btn-outline-custom w-100"><i class="bi bi-download me-1"></i> Descargar CV</a>
+        <a href="https://drive.google.com/file/d/1f6O6OcbkB6Myg7Qyejt_ljGEZILntXcV/view?usp=sharing" target="_blank" class="btn btn-sm btn-outline-custom w-100"><i class="bi bi-download me-1"></i> Ver CV / Título</a>
       </div>
 
     </div>
@@ -387,10 +405,10 @@
       <div class="container" data-aos="fade-up">
         <span class="tech-badge mb-2">DISPONIBLE PARA NUEVOS DESAFÍOS</span>
         <h1>Jon Jonathan Arias</h1>
-        <p>Especializado en <span id="typed-text">C# (.NET), Java y Python</span></p>
+        <p>Especializado en <span id="typed-text">C# (.NET), Java, Python y Frontend</span></p>
         <div class="mt-4">
           <a href="#projects" class="btn-custom"><i class="bi bi-folder-check me-2"></i>Ver Proyectos</a>
-          <a href="CV_Jon_Jonathan_Arias_2026.pdf" target="_blank" class="btn-outline-custom"><i class="bi bi-file-earmark-pdf me-2"></i>Descargar CV (PDF)</a>
+          <a href="#contact" class="btn-outline-custom"><i class="bi bi-chat-dots me-2"></i>Contactar</a>
         </div>
       </div>
     </section>
@@ -407,13 +425,13 @@
         <div class="row gy-4">
           <div class="col-lg-7">
             <p class="lead text-white">
-              Hola, soy <strong>Técnico Superior en Desarrollo Web y Aplicaciones Digitales</strong> egresado del Instituto Superior Politécnico Córdoba.
+              Técnico Superior en Desarrollo Web y Aplicaciones Digitales graduado del Instituto Superior Politécnico Córdoba.
             </p>
             <p class="text-muted">
-              Mi experiencia abarca el desarrollo Full Stack tanto para soluciones web como de escritorio. Me especializo en construir lógica backend robusta utilizando <strong>C# (.NET)</strong>, <strong>Java (API REST)</strong> y <strong>Python</strong>, complementado con interfaces dinámicas e interactivas creadas con <strong>JavaScript, Alpine.js y Bootstrap</strong>.
+              Mi experiencia abarca el desarrollo Full Stack tanto para soluciones web como de escritorio. Me especializo en construir lógica backend robusta utilizando <strong>C# (.NET)</strong>, <strong>Java (API REST, Tomcat)</strong>, <strong>Node.js</strong> y <strong>Python (Flask/Django)</strong>, complementado con interfaces dinámicas e interactivas creadas con <strong>JavaScript, Angular, Alpine.js, Bootstrap y Tailwind CSS</strong>.
             </p>
             <p class="text-muted">
-              Cuento con experiencia práctica diseñando sistemas de gestión comercial con arquitectura multicapa, motores de búsqueda geográficos en tiempo real y automatización de procesos operativos.
+              Experiencia práctica como desarrollador Freelance gestionando proyectos de extremo a extremo, desde el levantamiento de requerimientos y diseño de base de datos hasta el despliegue final.
             </p>
           </div>
 
@@ -421,11 +439,11 @@
             <div class="custom-card">
               <h4 class="text-white mb-3"><i class="bi bi-info-circle text-info me-2"></i>Información Clave</h4>
               <ul class="list-unstyled text-muted mb-0">
-                <li class="mb-2"><strong class="text-white">Ubicación:</strong> Sinsacate, Córdoba, Argentina</li>
+                <li class="mb-2"><strong class="text-white">Ubicación:</strong> Argentina</li>
                 <li class="mb-2"><strong class="text-white">Título:</strong> Técnico Superior en Dev Web</li>
-                <li class="mb-2"><strong class="text-white">Email:</strong> jonjonathanarias1@gmail.com</li>
-                <li class="mb-2"><strong class="text-white">Teléfono:</strong> +54 9 3525-404523</li>
+                <li class="mb-2"><strong class="text-white">Contacto:</strong> Opciones protegidas contra Spam</li>
                 <li class="mb-2"><strong class="text-white">Idiomas:</strong> Español (Nativo), Inglés (B2), Portugués (B2)</li>
+                <li class="mb-2"><strong class="text-white">Intereses:</strong> IA, Diseño Gráfico, Música, Fotografía</li>
                 <li><strong class="text-white">Modalidad:</strong> Remoto / Híbrido / Presencial</li>
               </ul>
             </div>
@@ -441,51 +459,54 @@
 
         <div class="section-title">
           <h2>Habilidades Técnicas</h2>
-          <p>Stack tecnológico con el que trabajo diariamente en proyectos web y aplicaciones de escritorio.</p>
+          <p>Stack tecnológico completo estructurado en frontend, backend, lenguajes y herramientas.</p>
         </div>
 
         <div class="row g-4">
 
           <div class="col-md-6 col-lg-3">
             <div class="custom-card">
-              <div class="text-info fs-2 mb-2"><i class="bi bi-server"></i></div>
-              <h5 class="text-white">Backend</h5>
-              <p class="text-muted small">Desarrollo de APIs REST, arquitectura orientada a servicios y lógica de negocio.</p>
-              <div>
-                <span class="tech-badge">C# (.NET)</span>
-                <span class="tech-badge">Java (Tomcat)</span>
-                <span class="tech-badge">Python (Flask/Django)</span>
-                <span class="tech-badge">Node.js</span>
-                <span class="tech-badge">PHP</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="custom-card">
               <div class="text-info fs-2 mb-2"><i class="bi bi-layout-wysiwyg"></i></div>
               <h5 class="text-white">Frontend</h5>
-              <p class="text-muted small">Maquetación responsiva, interfaces reactivas y optimización de experiencia de usuario.</p>
+              <p class="text-muted small">Maquetación responsiva, interfaces dinámicas y reacitvas.</p>
               <div>
-                <span class="tech-badge">JavaScript (ES6+)</span>
-                <span class="tech-badge">Alpine.js</span>
+                <span class="tech-badge">Angular</span>
                 <span class="tech-badge">HTML5 / CSS3</span>
                 <span class="tech-badge">Bootstrap</span>
                 <span class="tech-badge">Tailwind CSS</span>
+                <span class="tech-badge">Alpine.js</span>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-3">
             <div class="custom-card">
-              <div class="text-info fs-2 mb-2"><i class="bi bi-database"></i></div>
-              <h5 class="text-white">Bases de Datos</h5>
-              <p class="text-muted small">Diseño de esquemas relacionales, procedimientos almacenados y optimización SQL.</p>
+              <div class="text-info fs-2 mb-2"><i class="bi bi-server"></i></div>
+              <h5 class="text-white">Backend</h5>
+              <p class="text-muted small">APIs REST, arquitectura orientada a servicios y MVC.</p>
               <div>
-                <span class="tech-badge">SQL Server</span>
-                <span class="tech-badge">MySQL</span>
-                <span class="tech-badge">SQLite</span>
-                <span class="tech-badge">Modelado Relacional</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Django</span>
+                <span class="tech-badge">Blade</span>
+                <span class="tech-badge">Flask</span>
+                <span class="tech-badge">.NET</span>
+                <span class="tech-badge">Apache Tomcat</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="custom-card">
+              <div class="text-info fs-2 mb-2"><i class="bi bi-code-square"></i></div>
+              <h5 class="text-white">Lenguajes</h5>
+              <p class="text-muted small">Lenguajes de programación estructurados y orientados a objetos.</p>
+              <div>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">C#</span>
+                <span class="tech-badge">Java</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">SQL</span>
               </div>
             </div>
           </div>
@@ -493,14 +514,16 @@
           <div class="col-md-6 col-lg-3">
             <div class="custom-card">
               <div class="text-info fs-2 mb-2"><i class="bi bi-tools"></i></div>
-              <h5 class="text-white">Herramientas & Entornos</h5>
-              <p class="text-muted small">Control de versiones, herramientas de desarrollo e integración de hardware.</p>
+              <h5 class="text-white">Herramientas & BBDD</h5>
+              <p class="text-muted small">Control de versiones, bases de datos y entornos.</p>
               <div>
                 <span class="tech-badge">Git & GitHub</span>
-                <span class="tech-badge">Docker</span>
-                <span class="tech-badge">Visual Studio</span>
+                <span class="tech-badge">Scrum</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">SQL Server</span>
                 <span class="tech-badge">Android Studio</span>
-                <span class="tech-badge">Impresoras Térmicas POS</span>
+                <span class="tech-badge">WordPress</span>
+                <span class="tech-badge">Docker</span>
               </div>
             </div>
           </div>
@@ -521,24 +544,23 @@
 
         <div class="row g-4">
 
-          <!-- Cercamio.ar -->
+          <!-- Covacha Sala -->
           <div class="col-lg-4 col-md-6">
             <div class="custom-card d-flex flex-column">
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="tech-badge">PROYECTO FREELANCE / WEB</span>
-                <a href="https://github.com/jonjonathanarias" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
+                <span class="tech-badge">PLATAFORMA WEB</span>
+                <a href="https://covachasala.coop.ar" target="_blank" class="text-white fs-4"><i class="bi bi-box-arrow-up-right"></i></a>
               </div>
-              <h4 class="text-white">Cercamio.ar</h4>
+              <h4 class="text-white">Covacha Sala</h4>
               <p class="text-muted small flex-grow-1">
-                Plataforma de geolocalización comercial que conecta clientes con ofertas locales cercanas en tiempo real mediante cálculo dinámico de radio de distancia.
+                Landing page e integración de sistema de reservas para una cooperativa musical. Incluye interfaz de reserva de sala de ensayo y "pizarra editable" para novedades.
               </p>
               <div class="mb-3">
-                <span class="tech-badge">Java</span>
-                <span class="tech-badge">API REST</span>
-                <span class="tech-badge">Alpine.js</span>
-                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">HTML5 / CSS3</span>
+                <span class="tech-badge">Bootstrap</span>
               </div>
-              <a href="https://github.com/jonjonathanarias" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-box-arrow-up-right me-1"></i> Ver Repositorio</a>
+              <a href="https://covachasala.coop.ar" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-globe me-1"></i> Visitar Sitio Web</a>
             </div>
           </div>
 
@@ -547,47 +569,42 @@
             <div class="custom-card d-flex flex-column">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="tech-badge">SISTEMA DESKTOP</span>
-                <a href="https://github.com/jonjonathanarias" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
+                <a href="https://github.com/jonjonathanarias/popus_pizzerias" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
               </div>
               <h4 class="text-white">Popus Pizzería</h4>
               <p class="text-muted small flex-grow-1">
-                Sistema de gestión gastronómica integral. Incluye control de stock, automatización de arqueo de caja y emisión directa de comandas térmicas en cocina.
+                Sistema de gestión gastronómica integral en C# y SQL Server. Módulo de ventas, vinculación con emisión automática de comandas en cocina y arqueo de caja.
               </p>
               <div class="mb-3">
-                <span class="tech-badge">C# (.NET)</span>
+                <span class="tech-badge">C#</span>
+                <span class="tech-badge">Visual Studio</span>
                 <span class="tech-badge">SQL Server</span>
-                <span class="tech-badge">Windows Forms</span>
               </div>
-              <a href="https://github.com/jonjonathanarias" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-box-arrow-up-right me-1"></i> Ver Repositorio</a>
+              <a href="https://github.com/jonjonathanarias/popus_pizzerias" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-github me-1"></i> Ver Repositorio</a>
             </div>
           </div>
 
-          <!-- Covacha Sala -->
+          <!-- Cercamio.ar -->
           <div class="col-lg-4 col-md-6">
             <div class="custom-card d-flex flex-column">
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="tech-badge">PLATAFORMA WEB</span>
-                <a href="https://github.com/jonjonathanarias" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
+                <span class="tech-badge">GEOLOCALIZACIÓN WEB</span>
+                <a href="https://cercamio.ar" target="_blank" class="text-white fs-4"><i class="bi bi-box-arrow-up-right"></i></a>
               </div>
-              <h4 class="text-white">Covacha Sala</h4>
+              <h4 class="text-white">Cercamio.ar</h4>
               <p class="text-muted small flex-grow-1">
-                Landing page e integración de sistema de reservas para una cooperativa musical. Centraliza la reserva de salas de ensayo y servicios de grabación.
+                Plataforma de geolocalización de ofertas con cálculo de radio de distancia en tiempo real, CMS autónomo para comercios y filtrado dinámico.
               </p>
               <div class="mb-3">
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">HTML5 / CSS3</span>
-                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">Java</span>
+                <span class="tech-badge">API REST</span>
+                <span class="tech-badge">Blade</span>
+                <span class="tech-badge">Alpine.js</span>
               </div>
-              <a href="https://github.com/jonjonathanarias" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-box-arrow-up-right me-1"></i> Ver Repositorio</a>
+              <a href="https://cercamio.ar" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-globe me-1"></i> Visitar Sitio Web</a>
             </div>
           </div>
 
-        </div>
-
-        <!-- Callout to GitHub -->
-        <div class="mt-5 text-center">
-          <p class="text-muted mb-2">¿Quieres explorar más proyectos y código fuente?</p>
-          <a href="https://github.com/jonjonathanarias" target="_blank" class="btn btn-outline-custom"><i class="bi bi-github me-2"></i>Visita mi GitHub (@jonjonathanarias)</a>
         </div>
 
       </div>
@@ -599,65 +616,66 @@
 
         <div class="section-title">
           <h2>Trayectoria y Educación</h2>
-          <p>Formación académica oficial y experiencia práctica en desarrollo de software.</p>
+          <p>Formación académica oficial con certificados verificables y experiencia profesional.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-6">
-            <h3 class="text-white mb-4"><i class="bi bi-briefcase text-info me-2"></i>Experiencia & Proyectos</h3>
+            <h3 class="text-white mb-4"><i class="bi bi-briefcase text-info me-2"></i>Experiencia Profesional</h3>
 
             <div class="resume-item">
-              <h4>Desarrollador Lead & Full Stack</h4>
-              <h5>Junio 2025 - Presente</h5>
-              <p><em>Cercamio.ar | Freelance</em></p>
-              <ul class="text-muted small">
-                <li>Diseño e implementación de API REST en Java alojada en servidor Apache Tomcat.</li>
-                <li>Desarrollo de interfaz responsiva con Alpine.js, Blade y Bootstrap.</li>
-                <li>Lógica de filtrado geográfico por radio de proximidad.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Desarrollador .NET Desktop</h4>
-              <h5>Septiembre 2025 - Noviembre 2025</h5>
-              <p><em>Popus Pizzería | Sistema Comercial</em></p>
-              <ul class="text-muted small">
-                <li>Creación de software de administración gastronómica en C# y SQL Server.</li>
-                <li>Automatización de arqueo de caja y control de inventario.</li>
-                <li>Integración con impresoras térmicas POS para comandas instantáneas.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Desarrollador Web Freelance</h4>
+              <h4>Landing Page y Sistema de Reservas "Covacha Sala"</h4>
               <h5>Diciembre 2025</h5>
-              <p><em>Covacha Sala | Cooperativa Musical</em></p>
+              <p><em>Desarrollo Freelance</em></p>
               <ul class="text-muted small">
-                <li>Desarrollo web y canal de reservas online para salas de ensayo.</li>
+                <li>Diseño e integración de plataforma para reservación de sala de ensayos y grabación.</li>
+                <li>Desarrollo de panel de administración "pizarra editable" para novedades.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Sistema de Gestión Gastronómica "Popus Pizzeria"</h4>
+              <h5>Septiembre 2025 - Noviembre 2025</h5>
+              <p><em>Desarrollo Desktop (.NET / SQL)</em></p>
+              <ul class="text-muted small">
+                <li>Desarrollo de software integral para ventas, facturación y arqueo de caja.</li>
+                <li>Integración directa para emisión automática de comandas en cocina.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Plataforma de Geolocalización "Cercamio.ar"</h4>
+              <h5>Junio 2025 - Actualidad</h5>
+              <p><em>Desarrollo Full Stack</em></p>
+              <ul class="text-muted small">
+                <li>Motor de búsqueda geográfico en Java y API REST sobre Apache Tomcat.</li>
+                <li>Panel CMS para comerciantes y frontend reactivo con Alpine.js.</li>
               </ul>
             </div>
           </div>
 
           <div class="col-lg-6">
-            <h3 class="text-white mb-4"><i class="bi bi-journal-bookmark text-info me-2"></i>Educación Oficial</h3>
+            <h3 class="text-white mb-4"><i class="bi bi-journal-bookmark text-info me-2"></i>Formación Académica</h3>
 
             <div class="resume-item">
               <h4>Técnico Superior en Desarrollo Web y Aplicaciones Digitales</h4>
-              <h5>Graduado en Noviembre 2025</h5>
-              <p><em>Instituto Superior Politécnico Córdoba (Res. Min. N° 214-22)</em></p>
-              <p class="text-muted small">Formación de nivel superior enfocada en arquitectura web, patrones de diseño, bases de datos y desarrollo de software escalable.</p>
+              <h5>Marzo 2021 - Junio 2025</h5>
+              <p><em>Instituto Superior Politécnico Córdoba</em></p>
+              <a href="https://drive.google.com/file/d/1f6O6OcbkB6Myg7Qyejt_ljGEZILntXcV/view?usp=sharing" target="_blank" class="btn btn-sm btn-outline-custom mt-1 mb-2"><i class="bi bi-file-earmark-pdf me-1"></i> Título Digital (Drive)</a>
+            </div>
+
+            <div class="resume-item">
+              <h4>Programming Essentials in Python</h4>
+              <h5>Abril 2023</h5>
+              <p><em>Instituto Superior Politécnico Córdoba / Cisco</em></p>
+              <a href="https://drive.google.com/file/d/1rPEdGe_G1jYqIW_z1Or3TcjSTWJ2eZKj/view?usp=sharing" target="_blank" class="btn btn-sm btn-outline-custom mt-1 mb-2"><i class="bi bi-file-earmark-pdf me-1"></i> Certificado Digital (Drive)</a>
             </div>
 
             <div class="resume-item">
               <h4>Programador</h4>
               <h5>Julio 2023</h5>
               <p><em>Dirección General de Educación Técnica y Formación Profesional</em></p>
-            </div>
-
-            <div class="resume-item">
-              <h4>Programming Essentials in Python</h4>
-              <h5>Abril 2023</h5>
-              <p><em>Instituto Superior Politécnico Córdoba / Cisco Networking Academy</em></p>
+              <a href="https://drive.google.com/file/d/12rRxjWxVsVNZaV4NTY9_Zjca_L4GytGB/view?usp=sharing" target="_blank" class="btn btn-sm btn-outline-custom mt-1 mb-2"><i class="bi bi-file-earmark-pdf me-1"></i> Título Digital (Drive)</a>
             </div>
           </div>
         </div>
@@ -670,38 +688,67 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Contacto</h2>
-          <p>¿Tienes un proyecto en mente o una propuesta laboral? ¡Escríbeme!</p>
+          <h2>Contacto Seguro</h2>
+          <p>¿Tienes un proyecto en mente o una propuesta laboral? ¡Envíame un mensaje directo!</p>
         </div>
 
         <div class="row g-4">
-          <div class="col-lg-4">
-            <div class="custom-card text-center">
-              <div class="text-info fs-2 mb-2"><i class="bi bi-geo-alt"></i></div>
-              <h5 class="text-white">Ubicación</h5>
-              <p class="text-muted mb-0">Sinsacate, Córdoba, Argentina</p>
+          <div class="col-lg-6">
+            <div class="custom-card">
+              <h4 class="text-white mb-4"><i class="bi bi-shield-check text-info me-2"></i>Envío de Mensaje Directo</h4>
+              
+              <!-- Formulario de envío seguro generado por JS -->
+              <form id="secureContactForm" onsubmit="handleContactSubmit(event)">
+                <div class="mb-3">
+                  <label for="senderName" class="form-label text-muted small">Tu Nombre / Empresa</label>
+                  <input type="text" class="form-control form-control-custom" id="senderName" required placeholder="Ej. Maria Lopez">
+                </div>
+                <div class="mb-3">
+                  <label for="senderSubject" class="form-label text-muted small">Asunto</label>
+                  <input type="text" class="form-control form-control-custom" id="senderSubject" required placeholder="Propuesta de proyecto / Consulta">
+                </div>
+                <div class="mb-3">
+                  <label for="senderMessage" class="form-label text-muted small">Mensaje</label>
+                  <textarea class="form-control form-control-custom" id="senderMessage" rows="4" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+                <button type="submit" class="btn-custom w-100 py-3"><i class="bi bi-send me-2"></i>Enviar Mensaje Protegido</button>
+              </form>
             </div>
           </div>
 
-          <div class="col-lg-4">
-            <div class="custom-card text-center">
-              <div class="text-info fs-2 mb-2"><i class="bi bi-envelope"></i></div>
-              <h5 class="text-white">Correo Electrónico</h5>
-              <p class="text-muted mb-0">jonjonathanarias1@gmail.com</p>
+          <div class="col-lg-6">
+            <div class="custom-card d-flex flex-column justify-content-between">
+              <div>
+                <h4 class="text-white mb-4"><i class="bi bi-person-lines-fill text-info me-2"></i>Redes y Canales</h4>
+                <div class="d-flex align-items-center mb-4">
+                  <div class="text-info fs-3 me-3"><i class="bi bi-linkedin"></i></div>
+                  <div>
+                    <h6 class="text-white mb-0">LinkedIn</h6>
+                    <a href="https://linkedin.com/in/jon-jonathan-arias" target="_blank" class="text-muted text-decoration-none small">linkedin.com/in/jon-jonathan-arias</a>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                  <div class="text-info fs-3 me-3"><i class="bi bi-github"></i></div>
+                  <div>
+                    <h6 class="text-white mb-0">GitHub</h6>
+                    <a href="https://github.com/jonjonathanarias" target="_blank" class="text-muted text-decoration-none small">github.com/jonjonathanarias</a>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                  <div class="text-info fs-3 me-3"><i class="bi bi-envelope-shield"></i></div>
+                  <div>
+                    <h6 class="text-white mb-0">Correo Electrónico (Anti-Spam)</h6>
+                    <span class="text-muted small">Protegido por codificación criptográfica de clientes de correo.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-3 border border-secondary rounded bg-dark">
+                <small class="text-muted"><i class="bi bi-lock me-1"></i> Este sitio no expone correos en texto plano ni ejecuta scripts vulnerables de formularios abiertos.</small>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-4">
-            <div class="custom-card text-center">
-              <div class="text-info fs-2 mb-2"><i class="bi bi-linkedin"></i></div>
-              <h5 class="text-white">LinkedIn</h5>
-              <p class="text-muted mb-0">linkedin.com/in/jon-jonathan-arias</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-5 text-center">
-          <a href="mailto:jonjonathanarias1@gmail.com" class="btn-custom fs-5 px-5 py-3"><i class="bi bi-send me-2"></i>Enviar un mensaje</a>
         </div>
 
       </div>
@@ -720,9 +767,29 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- Script for Mobile Toggle & Animations -->
+  <!-- Anti-Spam & Navigation Script -->
   <script>
-    // Initialize Animations
+    // Configuración ofuscada de email para prevenir ciberataques y scrapers
+    const user = "jonjonathanarias1";
+    const domain = "gmail.com";
+
+    function sendMail() {
+      window.location.href = `mailto:${user}@${domain}`;
+    }
+
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('senderName').value;
+      const subject = document.getElementById('senderSubject').value;
+      const message = document.getElementById('senderMessage').value;
+
+      const fullSubject = encodeURIComponent(`[Contacto Web] ${subject} - De: ${name}`);
+      const fullBody = encodeURIComponent(`Hola Jon,\n\n${message}\n\nAtentamente,\n${name}`);
+
+      window.location.href = `mailto:${user}@${domain}?subject=${fullSubject}&body=${fullBody}`;
+    }
+
+    // Inicializar Animaciones
     AOS.init({
       duration: 800,
       once: true
@@ -738,7 +805,7 @@
       this.querySelector('i').classList.toggle('bi-x');
     });
 
-    // Auto Close Mobile Menu on Click
+    // Cierre automático de menú móvil
     document.querySelectorAll('#navbar a').forEach(navLink => {
       navLink.addEventListener('click', () => {
         if (header.classList.contains('header-show')) {
