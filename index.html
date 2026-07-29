@@ -1,316 +1,754 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jon Jonathan Arias - CV / Portafolio</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #0b5ed7;
-            --dark-color: #212529;
-            --light-bg: #f8f9fa;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            background-color: var(--light-bg);
-        }
-        .header-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 3rem 0;
-        }
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-        .card {
-            border: none;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-        }
-        .card-title-custom {
-            color: var(--primary-color);
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        .badge-skill {
-            background-color: #e7f1ff;
-            color: #0c63e4;
-            font-weight: 500;
-            margin: 2px;
-            padding: 6px 12px;
-            border-radius: 20px;
-        }
-        .project-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        .timeline-item {
-            border-left: 2px solid var(--primary-color);
-            padding-left: 15px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        .timeline-item::before {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            position: absolute;
-            left: -6px;
-            top: 6px;
-        }
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 1.5rem 0;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Jon Jonathan Arias | Técnico Superior en Desarrollo Web & Full Stack</title>
+  <meta content="Portafolio Profesional de Jon Jonathan Arias - Técnico Superior en Desarrollo Web y Aplicaciones Digitales. Especialista en C#, Java, Python y JavaScript." name="description">
+  <meta content="Jon Jonathan Arias, Desarrollo Web, Full Stack, C#, .NET, Java, Python, Alpine.js, Argentina, Software Developer" name="keywords">
+
+  <!-- Favicons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <style>
+    :root {
+      --primary-color: #0ea5e9;
+      --primary-hover: #0284c7;
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    code, pre, .tech-badge {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Header & Navigation */
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      transition: all ease-in-out 0.5s;
+      z-index: 9997;
+      transition: all 0.5s;
+      padding: 0 15px;
+      background: #090d16;
+      overflow-y: auto;
+      border-right: 1px solid var(--border-color);
+    }
+
+    .profile img {
+      margin: 15px auto;
+      display: block;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--primary-color);
+      object-fit: cover;
+    }
+
+    .profile h1 {
+      font-size: 22px;
+      margin: 0;
+      padding: 0;
+      font-weight: 700;
+      text-align: center;
+      color: #fff;
+    }
+
+    .profile .social-links a {
+      font-size: 18px;
+      display: inline-block;
+      background: #1e293b;
+      color: #fff;
+      line-height: 1;
+      padding: 10px 0;
+      margin-right: 6px;
+      border-radius: 50%;
+      text-align: center;
+      width: 38px;
+      height: 38px;
+      transition: 0.3s;
+    }
+
+    .profile .social-links a:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    .nav-menu * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-menu > ul > li {
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-menu a, .nav-menu a:focus {
+      display: flex;
+      align-items: center;
+      color: var(--text-muted);
+      padding: 12px 15px;
+      margin-bottom: 8px;
+      transition: 0.3s;
+      font-size: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .nav-menu a i {
+      font-size: 20px;
+      padding-right: 12px;
+      color: var(--text-muted);
+    }
+
+    .nav-menu a:hover, .nav-menu .active, .nav-menu .active:focus {
+      text-decoration: none;
+      color: #fff;
+      background: var(--primary-color);
+    }
+
+    .nav-menu a:hover i, .nav-menu .active i {
+      color: #fff;
+    }
+
+    /* Main Content Area */
+    #main {
+      margin-left: 300px;
+    }
+
+    @media (max-width: 991px) {
+      #header {
+        left: -300px;
+      }
+      #header.header-show {
+        left: 0;
+      }
+      #main {
+        margin-left: 0;
+      }
+    }
+
+    /* Hero Section */
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(9, 13, 22, 0.98)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=80') center center;
+      background-size: cover;
+      position: relative;
+      padding: 0 15px;
+    }
+
+    #hero h1 {
+      margin: 0 0 10px 0;
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 56px;
+      color: #fff;
+    }
+
+    #hero p {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    #hero p span {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 4px;
+    }
+
+    .btn-custom {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+      margin-right: 12px;
+    }
+
+    .btn-custom:hover {
+      background: var(--primary-hover);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-custom {
+      border: 2px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 26px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-outline-custom:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    /* Sections General */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      padding-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      position: relative;
+      color: #fff;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--primary-color);
+      bottom: 0;
+      left: 0;
+    }
+
+    .section-title p {
+      margin-bottom: 0;
+      color: var(--text-muted);
+    }
+
+    /* Cards & Badges */
+    .custom-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 25px;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .custom-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+    }
+
+    .tech-badge {
+      background: rgba(14, 165, 233, 0.1);
+      color: var(--primary-color);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      display: inline-block;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+
+    /* Timeline Resume */
+    .resume-item {
+      padding: 0 0 20px 20px;
+      margin-top: -2px;
+      border-left: 2px solid var(--border-color);
+      position: relative;
+    }
+
+    .resume-item::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50px;
+      left: -8px;
+      top: 0;
+      background: var(--bg-dark);
+      border: 2px solid var(--primary-color);
+    }
+
+    .resume-item h4 {
+      line-height: 18px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .resume-item h5 {
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 12px;
+      display: inline-block;
+      font-weight: 600;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      color: var(--primary-color);
+    }
+
+    /* Mobile Nav Toggle */
+    .mobile-nav-toggle {
+      position: fixed;
+      right: 15px;
+      top: 15px;
+      z-index: 9998;
+      border: 0;
+      font-size: 24px;
+      transition: all 0.4s;
+      outline: none !important;
+      background-color: var(--primary-color);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Header / Presentación -->
-    <header class="header-section text-center text-md-start">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-3 text-center mb-3 mb-md-0">
-                    <img src="profile.jpg" alt="Jon Jonathan Arias" class="profile-img" onerror="this.src='https://via.placeholder.com/160'">
-                </div>
-                <div class="col-md-9">
-                    <h1 class="fw-bold mb-1">Jon Jonathan Arias</h1>
-                    <h4 class="text-light fw-normal mb-3">Técnico Superior en Desarrollo Web y Aplicaciones Digitales</h4>
-                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
-                        <a href="mailto:jonjonathanarias1@gmail.com" class="text-white text-decoration-none">
-                            <i class="fas fa-envelope me-1"></i> jonjonathanarias1@gmail.com
-                        </a>
-                        <a href="tel:+5493525404523" class="text-white text-decoration-none">
-                            <i class="fas fa-phone me-1"></i> +54 9 3525 404523
-                        </a>
-                        <a href="https://linkedin.com/in/jon-jonathan-arias" target="_blank" class="text-white text-decoration-none">
-                            <i class="fab fa-linkedin me-1"></i> LinkedIn
-                        </a>
-                        <a href="https://github.com/jonjonathanarias" target="_blank" class="text-white text-decoration-none">
-                            <i class="fab fa-github me-1"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+  <!-- Mobile Toggle Button -->
+  <button type="button" class="mobile-nav-toggle d-lg-none" id="mobileToggle"><i class="bi bi-list"></i></button>
 
-    <!-- Contenido Principal -->
-    <main class="container my-5">
+  <!-- ======= Header Sidebar ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile mt-4">
+        <img src="https://ui-avatars.com/api/?name=Jon+Arias&background=0ea5e9&color=fff&size=128" alt="Jon Jonathan Arias" class="img-fluid rounded-circle">
+        <h1 class="mt-3"><a href="index.html" class="text-white text-decoration-none">Jon Arias</a></h1>
+        <p class="text-center text-muted small mt-1">Técnico Superior Dev Web</p>
+        <div class="social-links text-center mt-3">
+          <a href="https://github.com/jonjonathanarias" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+          <a href="https://linkedin.com/in/jon-jonathan-arias" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="mailto:jonjonathanarias1@gmail.com" title="Email"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar mt-4">
+        <ul>
+          <li><a href="#hero" class="nav-link active"><i class="bi bi-house-door"></i> <span>Inicio</span></a></li>
+          <li><a href="#about" class="nav-link"><i class="bi bi-person"></i> <span>Sobre Mí</span></a></li>
+          <li><a href="#skills" class="nav-link"><i class="bi bi-cpu"></i> <span>Habilidades</span></a></li>
+          <li><a href="#projects" class="nav-link"><i class="bi bi-code-slash"></i> <span>Proyectos</span></a></li>
+          <li><a href="#resume" class="nav-link"><i class="bi bi-file-earmark-text"></i> <span>Experiencia</span></a></li>
+          <li><a href="#contact" class="nav-link"><i class="bi bi-envelope"></i> <span>Contacto</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="mt-auto mb-4 text-center">
+        <a href="CV_Jon_Jonathan_Arias_2026.pdf" target="_blank" class="btn btn-sm btn-outline-custom w-100"><i class="bi bi-download me-1"></i> Descargar CV</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======= Main Content Area ======= -->
+  <main id="main">
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex flex-column justify-content-center">
+      <div class="container" data-aos="fade-up">
+        <span class="tech-badge mb-2">DISPONIBLE PARA NUEVOS DESAFÍOS</span>
+        <h1>Jon Jonathan Arias</h1>
+        <p>Especializado en <span id="typed-text">C# (.NET), Java y Python</span></p>
+        <div class="mt-4">
+          <a href="#projects" class="btn-custom"><i class="bi bi-folder-check me-2"></i>Ver Proyectos</a>
+          <a href="CV_Jon_Jonathan_Arias_2026.pdf" target="_blank" class="btn-outline-custom"><i class="bi bi-file-earmark-pdf me-2"></i>Descargar CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Sobre Mí</h2>
+          <p>Enfocado en resolver problemas reales mediante código limpio, arquitecturas sólidas e interfaces eficientes.</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-7">
+            <p class="lead text-white">
+              Hola, soy <strong>Técnico Superior en Desarrollo Web y Aplicaciones Digitales</strong> egresado del Instituto Superior Politécnico Córdoba.
+            </p>
+            <p class="text-muted">
+              Mi experiencia abarca el desarrollo Full Stack tanto para soluciones web como de escritorio. Me especializo en construir lógica backend robusta utilizando <strong>C# (.NET)</strong>, <strong>Java (API REST)</strong> y <strong>Python</strong>, complementado con interfaces dinámicas e interactivas creadas con <strong>JavaScript, Alpine.js y Bootstrap</strong>.
+            </p>
+            <p class="text-muted">
+              Cuento con experiencia práctica diseñando sistemas de gestión comercial con arquitectura multicapa, motores de búsqueda geográficos en tiempo real y automatización de procesos operativos.
+            </p>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="custom-card">
+              <h4 class="text-white mb-3"><i class="bi bi-info-circle text-info me-2"></i>Información Clave</h4>
+              <ul class="list-unstyled text-muted mb-0">
+                <li class="mb-2"><strong class="text-white">Ubicación:</strong> Sinsacate, Córdoba, Argentina</li>
+                <li class="mb-2"><strong class="text-white">Título:</strong> Técnico Superior en Dev Web</li>
+                <li class="mb-2"><strong class="text-white">Email:</strong> jonjonathanarias1@gmail.com</li>
+                <li class="mb-2"><strong class="text-white">Teléfono:</strong> +54 9 3525-404523</li>
+                <li class="mb-2"><strong class="text-white">Idiomas:</strong> Español (Nativo), Inglés (B2), Portugués (B2)</li>
+                <li><strong class="text-white">Modalidad:</strong> Remoto / Híbrido / Presencial</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Habilidades Técnicas</h2>
+          <p>Stack tecnológico con el que trabajo diariamente en proyectos web y aplicaciones de escritorio.</p>
+        </div>
+
+        <div class="row g-4">
+
+          <div class="col-md-6 col-lg-3">
+            <div class="custom-card">
+              <div class="text-info fs-2 mb-2"><i class="bi bi-server"></i></div>
+              <h5 class="text-white">Backend</h5>
+              <p class="text-muted small">Desarrollo de APIs REST, arquitectura orientada a servicios y lógica de negocio.</p>
+              <div>
+                <span class="tech-badge">C# (.NET)</span>
+                <span class="tech-badge">Java (Tomcat)</span>
+                <span class="tech-badge">Python (Flask/Django)</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">PHP</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="custom-card">
+              <div class="text-info fs-2 mb-2"><i class="bi bi-layout-wysiwyg"></i></div>
+              <h5 class="text-white">Frontend</h5>
+              <p class="text-muted small">Maquetación responsiva, interfaces reactivas y optimización de experiencia de usuario.</p>
+              <div>
+                <span class="tech-badge">JavaScript (ES6+)</span>
+                <span class="tech-badge">Alpine.js</span>
+                <span class="tech-badge">HTML5 / CSS3</span>
+                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">Tailwind CSS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="custom-card">
+              <div class="text-info fs-2 mb-2"><i class="bi bi-database"></i></div>
+              <h5 class="text-white">Bases de Datos</h5>
+              <p class="text-muted small">Diseño de esquemas relacionales, procedimientos almacenados y optimización SQL.</p>
+              <div>
+                <span class="tech-badge">SQL Server</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">SQLite</span>
+                <span class="tech-badge">Modelado Relacional</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="custom-card">
+              <div class="text-info fs-2 mb-2"><i class="bi bi-tools"></i></div>
+              <h5 class="text-white">Herramientas & Entornos</h5>
+              <p class="text-muted small">Control de versiones, herramientas de desarrollo e integración de hardware.</p>
+              <div>
+                <span class="tech-badge">Git & GitHub</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Visual Studio</span>
+                <span class="tech-badge">Android Studio</span>
+                <span class="tech-badge">Impresoras Térmicas POS</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Projects Section ======= -->
+    <section id="projects" class="projects">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Proyectos Destacados</h2>
+          <p>Casos de estudio reales donde aplico mis conocimientos para crear soluciones funcionales y escalables.</p>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- Cercamio.ar -->
+          <div class="col-lg-4 col-md-6">
+            <div class="custom-card d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="tech-badge">PROYECTO FREELANCE / WEB</span>
+                <a href="https://github.com/jonjonathanarias" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
+              </div>
+              <h4 class="text-white">Cercamio.ar</h4>
+              <p class="text-muted small flex-grow-1">
+                Plataforma de geolocalización comercial que conecta clientes con ofertas locales cercanas en tiempo real mediante cálculo dinámico de radio de distancia.
+              </p>
+              <div class="mb-3">
+                <span class="tech-badge">Java</span>
+                <span class="tech-badge">API REST</span>
+                <span class="tech-badge">Alpine.js</span>
+                <span class="tech-badge">MySQL</span>
+              </div>
+              <a href="https://github.com/jonjonathanarias" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-box-arrow-up-right me-1"></i> Ver Repositorio</a>
+            </div>
+          </div>
+
+          <!-- Popus Pizzeria -->
+          <div class="col-lg-4 col-md-6">
+            <div class="custom-card d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="tech-badge">SISTEMA DESKTOP</span>
+                <a href="https://github.com/jonjonathanarias" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
+              </div>
+              <h4 class="text-white">Popus Pizzería</h4>
+              <p class="text-muted small flex-grow-1">
+                Sistema de gestión gastronómica integral. Incluye control de stock, automatización de arqueo de caja y emisión directa de comandas térmicas en cocina.
+              </p>
+              <div class="mb-3">
+                <span class="tech-badge">C# (.NET)</span>
+                <span class="tech-badge">SQL Server</span>
+                <span class="tech-badge">Windows Forms</span>
+              </div>
+              <a href="https://github.com/jonjonathanarias" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-box-arrow-up-right me-1"></i> Ver Repositorio</a>
+            </div>
+          </div>
+
+          <!-- Covacha Sala -->
+          <div class="col-lg-4 col-md-6">
+            <div class="custom-card d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="tech-badge">PLATAFORMA WEB</span>
+                <a href="https://github.com/jonjonathanarias" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
+              </div>
+              <h4 class="text-white">Covacha Sala</h4>
+              <p class="text-muted small flex-grow-1">
+                Landing page e integración de sistema de reservas para una cooperativa musical. Centraliza la reserva de salas de ensayo y servicios de grabación.
+              </p>
+              <div class="mb-3">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">HTML5 / CSS3</span>
+                <span class="tech-badge">Bootstrap</span>
+              </div>
+              <a href="https://github.com/jonjonathanarias" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-box-arrow-up-right me-1"></i> Ver Repositorio</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Callout to GitHub -->
+        <div class="mt-5 text-center">
+          <p class="text-muted mb-2">¿Quieres explorar más proyectos y código fuente?</p>
+          <a href="https://github.com/jonjonathanarias" target="_blank" class="btn btn-outline-custom"><i class="bi bi-github me-2"></i>Visita mi GitHub (@jonjonathanarias)</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Trayectoria y Educación</h2>
+          <p>Formación académica oficial y experiencia práctica en desarrollo de software.</p>
+        </div>
+
         <div class="row">
-            
-            <!-- Columna Izquierda -->
-            <div class="col-lg-4">
-                
-                <!-- Perfil Profesional -->
-                <div class="card p-3">
-                    <h5 class="card-title-custom"><i class="fas fa-user me-2"></i>Perfil Profesional</h5>
-                    <p class="card-text text-muted mb-0">
-                        Técnico Superior en Desarrollo Web y Aplicaciones Digitales con sólida base en lenguajes modernos y arquitectura de software. Experiencia como desarrollador FreeLance gestionando proyectos de extremo a extremo, desde el levantamiento de requerimientos hasta el despliegue. Enfoque en código limpio, escalabilidad y aprendizaje continuo de nuevas tecnologías.
-                    </p>
-                </div>
+          <div class="col-lg-6">
+            <h3 class="text-white mb-4"><i class="bi bi-briefcase text-info me-2"></i>Experiencia & Proyectos</h3>
 
-                <!-- Habilidades Técnicas -->
-                <div class="card p-3">
-                    <h5 class="card-title-custom"><i class="fas fa-code me-2"></i>Habilidades</h5>
-                    
-                    <h6 class="fw-bold text-secondary mt-2">Frontend</h6>
-                    <div class="d-flex flex-wrap mb-2">
-                        <span class="badge badge-skill">Angular</span>
-                        <span class="badge badge-skill">HTML5</span>
-                        <span class="badge badge-skill">CSS3</span>
-                        <span class="badge badge-skill">Bootstrap</span>
-                        <span class="badge badge-skill">Tailwind</span>
-                        <span class="badge badge-skill">Alpine.js</span>
-                    </div>
-
-                    <h6 class="fw-bold text-secondary mt-2">Backend</h6>
-                    <div class="d-flex flex-wrap mb-2">
-                        <span class="badge badge-skill">Node.js</span>
-                        <span class="badge badge-skill">Django</span>
-                        <span class="badge badge-skill">Blade</span>
-                        <span class="badge badge-skill">Flask</span>
-                        <span class="badge badge-skill">.NET</span>
-                    </div>
-
-                    <h6 class="fw-bold text-secondary mt-2">Lenguajes</h6>
-                    <div class="d-flex flex-wrap mb-2">
-                        <span class="badge badge-skill">JavaScript</span>
-                        <span class="badge badge-skill">PHP</span>
-                        <span class="badge badge-skill">C#</span>
-                        <span class="badge badge-skill">Java</span>
-                        <span class="badge badge-skill">Python</span>
-                        <span class="badge badge-skill">SQL</span>
-                    </div>
-
-                    <h6 class="fw-bold text-secondary mt-2">Herramientas / Otros</h6>
-                    <div class="d-flex flex-wrap">
-                        <span class="badge badge-skill">Git</span>
-                        <span class="badge badge-skill">GitHub</span>
-                        <span class="badge badge-skill">Scrum</span>
-                        <span class="badge badge-skill">MySQL</span>
-                        <span class="badge badge-skill">SQLServer</span>
-                        <span class="badge badge-skill">Android Studio</span>
-                        <span class="badge badge-skill">WordPress</span>
-                        <span class="badge badge-skill">Docker</span>
-                    </div>
-                </div>
-
-                <!-- Idiomas -->
-                <div class="card p-3">
-                    <h5 class="card-title-custom"><i class="fas fa-language me-2"></i>Idiomas</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li class="mb-1"><strong>Español:</strong> Lengua materna</li>
-                        <li class="mb-1"><strong>Inglés:</strong> Intermedio (B2)</li>
-                        <li><strong>Portugués:</strong> Intermedio (B2)</li>
-                    </ul>
-                </div>
-
-                <!-- Intereses -->
-                <div class="card p-3">
-                    <h5 class="card-title-custom"><i class="fas fa-heart me-2"></i>Intereses</h5>
-                    <div class="d-flex flex-wrap gap-2">
-                        <span class="badge bg-light text-dark border">Inteligencia artificial</span>
-                        <span class="badge bg-light text-dark border">Diseño gráfico</span>
-                        <span class="badge bg-light text-dark border">Nuevas tecnologías</span>
-                        <span class="badge bg-light text-dark border">Música</span>
-                        <span class="badge bg-light text-dark border">Fotografía</span>
-                    </div>
-                </div>
-
+            <div class="resume-item">
+              <h4>Desarrollador Lead & Full Stack</h4>
+              <h5>Junio 2025 - Presente</h5>
+              <p><em>Cercamio.ar | Freelance</em></p>
+              <ul class="text-muted small">
+                <li>Diseño e implementación de API REST en Java alojada en servidor Apache Tomcat.</li>
+                <li>Desarrollo de interfaz responsiva con Alpine.js, Blade y Bootstrap.</li>
+                <li>Lógica de filtrado geográfico por radio de proximidad.</li>
+              </ul>
             </div>
 
-            <!-- Columna Derecha -->
-            <div class="col-lg-8">
-                
-                <!-- Experiencia Profesional -->
-                <div class="card p-4">
-                    <h5 class="card-title-custom"><i class="fas fa-briefcase me-2"></i>Experiencia Profesional</h5>
-
-                    <!-- Proyecto 1 -->
-                    <div class="project-card border rounded p-3 mb-3">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap">
-                            <div>
-                                <h6 class="fw-bold text-primary mb-1">Landing Page y Sistema de Reservas "Covacha Sala"</h6>
-                                <p class="text-muted small mb-2">Diciembre 2025</p>
-                            </div>
-                            <a href="https://covachasala.coop.ar" target="_blank" class="btn btn-sm btn-outline-primary mb-2">
-                                <i class="fas fa-external-link-alt me-1"></i> Ver Página
-                            </a>
-                        </div>
-                        <ul>
-                            <li>Estructuré el contenido y la interfaz para una cooperativa musical, integrando secciones de servicios de grabación de sonido y audiovisuales y alquiler de sala de ensayo.</li>
-                            <li><strong>Funcionalidad clave:</strong> Diseño de una interfaz para la reserva de ensayos y una "pizarra editable" para novedades.</li>
-                            <li>Centralicé la información de servicios, redes sociales y ubicación, mejorando la visibilidad de la cooperativa en Colonia Caroya.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Proyecto 2 -->
-                    <div class="project-card border rounded p-3 mb-3">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap">
-                            <div>
-                                <h6 class="fw-bold text-primary mb-1">Sistema de Gestión Gastronómica (Pizzería) - Popus Pizzeria</h6>
-                                <p class="text-muted small mb-2">Septiembre 2025 - Noviembre 2025</p>
-                            </div>
-                            <a href="https://github.com/jonjonathanarias/popus_pizzerias" target="_blank" class="btn btn-sm btn-outline-dark mb-2">
-                                <i class="fab fa-github me-1"></i> Repositorio
-                            </a>
-                        </div>
-                        <p class="small text-muted mb-2"><strong>Tecnologías:</strong> C#, Visual Studio, SQL Server</p>
-                        <ul>
-                            <li>Diseñé y desarrollé una aplicación de escritorio integral para la gestión operativa de un restaurante/pizzería, enfocada en la optimización de procesos desde la recepción del pedido hasta el cierre de caja.</li>
-                            <li><strong>Módulo de Ventas y Comandas:</strong> Implementé un sistema de facturación vinculado a la emisión automática de comandas en cocina, mejorando la comunicación interna y reduciendo los tiempos de servicio.</li>
-                            <li><strong>Control de Stock y Arqueo:</strong> Desarrollé herramientas para el seguimiento de inventario y la automatización del arqueo de caja, garantizando la integridad de los datos financieros al final de cada jornada.</li>
-                            <li>Digitalicé procesos que antes eran manuales, logrando un control total sobre el inventario de insumos y eliminando errores comunes en el procesamiento de pedidos.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Proyecto 3 -->
-                    <div class="project-card border rounded p-3">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap">
-                            <div>
-                                <h6 class="fw-bold text-primary mb-1">Plataforma de Geolocalización de Ofertas - Cercamio.ar</h6>
-                                <p class="text-muted small mb-2">Junio 2025 - Actualidad</p>
-                            </div>
-                            <a href="https://cercamio.ar" target="_blank" class="btn btn-sm btn-outline-primary mb-2">
-                                <i class="fas fa-external-link-alt me-1"></i> Ver Página
-                            </a>
-                        </div>
-                        <p class="small text-muted mb-2"><strong>Backend:</strong> Java, API REST, Blade, Apache Tomcat | <strong>Frontend:</strong> Alpine.js, Bootstrap, HTML5/CSS3</p>
-                        <ul>
-                            <li>Desarrollo de una plataforma web diseñada para conectar a consumidores locales con comercios adheridos, permitiendo la visualización de ofertas en tiempo real basadas en la ubicación del usuario.</li>
-                            <li><strong>Motor de Búsqueda Geográfico:</strong> Implementé lógica de geolocalización para permitir el filtrado de ofertas por radio de distancia, priorizando los comercios más cercanos al usuario.</li>
-                            <li><strong>Sistema de Gestión para Comercios (CMS):</strong> Desarrollé un panel para que los comerciantes puedan publicar, categorizar y gestionar sus ofertas de manera autónoma.</li>
-                            <li><strong>Filtrado Avanzado:</strong> Creación de filtros dinámicos por categorías de artículos y proximidad, optimizando la experiencia de búsqueda (UX).</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <!-- Formación Académica -->
-                <div class="card p-4">
-                    <h5 class="card-title-custom"><i class="fas fa-graduation-cap me-2"></i>Formación</h5>
-
-                    <div class="timeline-item">
-                        <h6 class="fw-bold mb-1">Técnico superior desarrollo web y aplicaciones digitales</h6>
-                        <p class="mb-1 text-secondary">Instituto Superior Politécnico Córdoba</p>
-                        <p class="small text-muted mb-2">Marzo 2021 - Junio 2025</p>
-                        <a href="https://drive.google.com/file/d/1f6O6OcbkB6Myg7Qyejt_ljGEZILntXcV/view?usp=sharing" target="_blank" class="btn btn-sm btn-outline-info">
-                            <i class="fas fa-external-link-alt me-1"></i> Título Digital
-                        </a>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h6 class="fw-bold mb-1">Programming Essentials in Python</h6>
-                        <p class="mb-1 text-secondary">Instituto Superior Politécnico Córdoba</p>
-                        <p class="small text-muted mb-2">Abril 2023</p>
-                        <a href="https://drive.google.com/file/d/1rPEdGe_G1jYqIW_z1Or3TcjSTWJ2eZKj/view?usp=sharing" target="_blank" class="btn btn-sm btn-outline-info">
-                            <i class="fas fa-external-link-alt me-1"></i> Título Digital
-                        </a>
-                    </div>
-
-                    <div class="timeline-item mb-0">
-                        <h6 class="fw-bold mb-1">Programador</h6>
-                        <p class="mb-1 text-secondary">Dirección General de Educación Técnica Y Formación Profesional</p>
-                        <p class="small text-muted mb-2">Julio 2023</p>
-                        <a href="https://drive.google.com/file/d/12rRxjWxVsVNZaV4NTY9_Zjca_L4GytGB/view?usp=sharing" target="_blank" class="btn btn-sm btn-outline-info">
-                            <i class="fas fa-external-link-alt me-1"></i> Título Digital
-                        </a>
-                    </div>
-
-                </div>
-
+            <div class="resume-item">
+              <h4>Desarrollador .NET Desktop</h4>
+              <h5>Septiembre 2025 - Noviembre 2025</h5>
+              <p><em>Popus Pizzería | Sistema Comercial</em></p>
+              <ul class="text-muted small">
+                <li>Creación de software de administración gastronómica en C# y SQL Server.</li>
+                <li>Automatización de arqueo de caja y control de inventario.</li>
+                <li>Integración con impresoras térmicas POS para comandas instantáneas.</li>
+              </ul>
             </div>
-        </div>
-    </main>
 
-    <footer class="text-center">
-        <div class="container">
-            <p class="mb-0 small">&copy; Jon Jonathan Arias. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+            <div class="resume-item">
+              <h4>Desarrollador Web Freelance</h4>
+              <h5>Diciembre 2025</h5>
+              <p><em>Covacha Sala | Cooperativa Musical</em></p>
+              <ul class="text-muted small">
+                <li>Desarrollo web y canal de reservas online para salas de ensayo.</li>
+              </ul>
+            </div>
+          </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+          <div class="col-lg-6">
+            <h3 class="text-white mb-4"><i class="bi bi-journal-bookmark text-info me-2"></i>Educación Oficial</h3>
+
+            <div class="resume-item">
+              <h4>Técnico Superior en Desarrollo Web y Aplicaciones Digitales</h4>
+              <h5>Graduado en Noviembre 2025</h5>
+              <p><em>Instituto Superior Politécnico Córdoba (Res. Min. N° 214-22)</em></p>
+              <p class="text-muted small">Formación de nivel superior enfocada en arquitectura web, patrones de diseño, bases de datos y desarrollo de software escalable.</p>
+            </div>
+
+            <div class="resume-item">
+              <h4>Programador</h4>
+              <h5>Julio 2023</h5>
+              <p><em>Dirección General de Educación Técnica y Formación Profesional</em></p>
+            </div>
+
+            <div class="resume-item">
+              <h4>Programming Essentials in Python</h4>
+              <h5>Abril 2023</h5>
+              <p><em>Instituto Superior Politécnico Córdoba / Cisco Networking Academy</em></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contacto</h2>
+          <p>¿Tienes un proyecto en mente o una propuesta laboral? ¡Escríbeme!</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="custom-card text-center">
+              <div class="text-info fs-2 mb-2"><i class="bi bi-geo-alt"></i></div>
+              <h5 class="text-white">Ubicación</h5>
+              <p class="text-muted mb-0">Sinsacate, Córdoba, Argentina</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="custom-card text-center">
+              <div class="text-info fs-2 mb-2"><i class="bi bi-envelope"></i></div>
+              <h5 class="text-white">Correo Electrónico</h5>
+              <p class="text-muted mb-0">jonjonathanarias1@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="custom-card text-center">
+              <div class="text-info fs-2 mb-2"><i class="bi bi-linkedin"></i></div>
+              <h5 class="text-white">LinkedIn</h5>
+              <p class="text-muted mb-0">linkedin.com/in/jon-jonathan-arias</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 text-center">
+          <a href="mailto:jonjonathanarias1@gmail.com" class="btn-custom fs-5 px-5 py-3"><i class="bi bi-send me-2"></i>Enviar un mensaje</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="py-4 text-center text-muted border-top border-secondary">
+    <div class="container">
+      <small>&copy; Jon Jonathan Arias - Técnico Superior en Desarrollo Web. Alojado en GitHub Pages.</small>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Script for Mobile Toggle & Animations -->
+  <script>
+    // Initialize Animations
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    // Mobile Navbar Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const header = document.getElementById('header');
+
+    mobileToggle.addEventListener('click', function() {
+      header.classList.toggle('header-show');
+      this.querySelector('i').classList.toggle('bi-list');
+      this.querySelector('i').classList.toggle('bi-x');
+    });
+
+    // Auto Close Mobile Menu on Click
+    document.querySelectorAll('#navbar a').forEach(navLink => {
+      navLink.addEventListener('click', () => {
+        if (header.classList.contains('header-show')) {
+          header.classList.remove('header-show');
+          mobileToggle.querySelector('i').classList.add('bi-list');
+          mobileToggle.querySelector('i').classList.remove('bi-x');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
