@@ -60,11 +60,12 @@
     .profile img {
       margin: 15px auto;
       display: block;
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       border: 3px solid var(--primary-color);
-      object-fit: cover;
+      object-fit: contain;
+      object-position: ;
     }
 
     .profile h1 {
@@ -369,9 +370,9 @@
     <div class="d-flex flex-column">
 
       <div class="profile mt-4">
-        <img src="https://ui-avatars.com/api/?name=Jon+Arias&background=0ea5e9&color=fff&size=128" alt="Jon Jonathan Arias" class="img-fluid rounded-circle">
-        <h1 class="mt-3"><a href="index.html" class="text-white text-decoration-none">Jon Arias</a></h1>
-        <p class="text-center text-muted small mt-1">Técnico Superior Dev Web</p>
+        <img src="assets/img/me.jpg" alt="Jon Jonathan Arias" class="img-fluid rounded-circle">
+        <h1 class="mt-3"><a href="index.html" class="text-white text-decoration-none">Jon Jonathan Arias</a></h1>
+        <p class="text-center --text-muted small mt-1">Técnico Superior En Desarrollo Web</p>
         <div class="social-links text-center mt-3">
           <a href="https://github.com/jonjonathanarias" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
           <a href="https://linkedin.com/in/jon-jonathan-arias" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
@@ -427,10 +428,10 @@
             <p class="lead text-white">
               Técnico Superior en Desarrollo Web y Aplicaciones Digitales graduado del Instituto Superior Politécnico Córdoba.
             </p>
-            <p class="text-muted">
+            <p class="--text-muted">
               Mi experiencia abarca el desarrollo Full Stack tanto para soluciones web como de escritorio. Me especializo en construir lógica backend robusta utilizando <strong>C# (.NET)</strong>, <strong>Java (API REST, Tomcat)</strong>, <strong>Node.js</strong> y <strong>Python (Flask/Django)</strong>, complementado con interfaces dinámicas e interactivas creadas con <strong>JavaScript, Angular, Alpine.js, Bootstrap y Tailwind CSS</strong>.
             </p>
-            <p class="text-muted">
+            <p class="--text-muted">
               Experiencia práctica como desarrollador Freelance gestionando proyectos de extremo a extremo, desde el levantamiento de requerimientos y diseño de base de datos hasta el despliegue final.
             </p>
           </div>
@@ -438,7 +439,7 @@
           <div class="col-lg-5">
             <div class="custom-card">
               <h4 class="text-white mb-3"><i class="bi bi-info-circle text-info me-2"></i>Información Clave</h4>
-              <ul class="list-unstyled text-muted mb-0">
+              <ul class="list-unstyled --text-muted mb-0">
                 <li class="mb-2"><strong class="text-white">Ubicación:</strong> Argentina</li>
                 <li class="mb-2"><strong class="text-white">Título:</strong> Técnico Superior en Dev Web</li>
                 <li class="mb-2"><strong class="text-white">Contacto:</strong> Opciones protegidas contra Spam</li>
@@ -468,7 +469,7 @@
             <div class="custom-card">
               <div class="text-info fs-2 mb-2"><i class="bi bi-layout-wysiwyg"></i></div>
               <h5 class="text-white">Frontend</h5>
-              <p class="text-muted small">Maquetación responsiva, interfaces dinámicas y reacitvas.</p>
+              <p class="--text-muted small">Maquetación responsiva, interfaces dinámicas y reacitvas.</p>
               <div>
                 <span class="tech-badge">Angular</span>
                 <span class="tech-badge">HTML5 / CSS3</span>
@@ -483,7 +484,7 @@
             <div class="custom-card">
               <div class="text-info fs-2 mb-2"><i class="bi bi-server"></i></div>
               <h5 class="text-white">Backend</h5>
-              <p class="text-muted small">APIs REST, arquitectura orientada a servicios y MVC.</p>
+              <p class="--text-muted small">APIs REST, arquitectura orientada a servicios y MVC.</p>
               <div>
                 <span class="tech-badge">Node.js</span>
                 <span class="tech-badge">Django</span>
@@ -499,7 +500,7 @@
             <div class="custom-card">
               <div class="text-info fs-2 mb-2"><i class="bi bi-code-square"></i></div>
               <h5 class="text-white">Lenguajes</h5>
-              <p class="text-muted small">Lenguajes de programación estructurados y orientados a objetos.</p>
+              <p class="--text-muted small">Lenguajes de programación estructurados y orientados a objetos.</p>
               <div>
                 <span class="tech-badge">JavaScript</span>
                 <span class="tech-badge">PHP</span>
@@ -515,7 +516,7 @@
             <div class="custom-card">
               <div class="text-info fs-2 mb-2"><i class="bi bi-tools"></i></div>
               <h5 class="text-white">Herramientas & BBDD</h5>
-              <p class="text-muted small">Control de versiones, bases de datos y entornos.</p>
+              <p class="--text-muted small">Control de versiones, bases de datos y entornos.</p>
               <div>
                 <span class="tech-badge">Git & GitHub</span>
                 <span class="tech-badge">Scrum</span>
@@ -552,7 +553,7 @@
                 <a href="https://covachasala.coop.ar" target="_blank" class="text-white fs-4"><i class="bi bi-box-arrow-up-right"></i></a>
               </div>
               <h4 class="text-white">Covacha Sala</h4>
-              <p class="text-muted small flex-grow-1">
+              <p class="--text-muted small flex-grow-1">
                 Landing page e integración de sistema de reservas para una cooperativa musical. Incluye interfaz de reserva de sala de ensayo y "pizarra editable" para novedades.
               </p>
               <div class="mb-3">
@@ -572,7 +573,7 @@
                 <a href="https://github.com/jonjonathanarias/popus_pizzerias" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
               </div>
               <h4 class="text-white">Popus Pizzería</h4>
-              <p class="text-muted small flex-grow-1">
+              <p class="--text-muted small flex-grow-1">
                 Sistema de gestión gastronómica integral en C# y SQL Server. Módulo de ventas, vinculación con emisión automática de comandas en cocina y arqueo de caja.
               </p>
               <div class="mb-3">
@@ -592,7 +593,7 @@
                 <a href="https://cercamio.ar" target="_blank" class="text-white fs-4"><i class="bi bi-box-arrow-up-right"></i></a>
               </div>
               <h4 class="text-white">Cercamio.ar</h4>
-              <p class="text-muted small flex-grow-1">
+              <p class="--text-muted small flex-grow-1">
                 Plataforma de geolocalización de ofertas con cálculo de radio de distancia en tiempo real, CMS autónomo para comercios y filtrado dinámico.
               </p>
               <div class="mb-3">
@@ -627,7 +628,7 @@
               <h4>Landing Page y Sistema de Reservas "Covacha Sala"</h4>
               <h5>Diciembre 2025</h5>
               <p><em>Desarrollo Freelance</em></p>
-              <ul class="text-muted small">
+              <ul class="--text-muted small">
                 <li>Diseño e integración de plataforma para reservación de sala de ensayos y grabación.</li>
                 <li>Desarrollo de panel de administración "pizarra editable" para novedades.</li>
               </ul>
@@ -637,7 +638,7 @@
               <h4>Sistema de Gestión Gastronómica "Popus Pizzeria"</h4>
               <h5>Septiembre 2025 - Noviembre 2025</h5>
               <p><em>Desarrollo Desktop (.NET / SQL)</em></p>
-              <ul class="text-muted small">
+              <ul class="--text-muted small">
                 <li>Desarrollo de software integral para ventas, facturación y arqueo de caja.</li>
                 <li>Integración directa para emisión automática de comandas en cocina.</li>
               </ul>
@@ -647,7 +648,7 @@
               <h4>Plataforma de Geolocalización "Cercamio.ar"</h4>
               <h5>Junio 2025 - Actualidad</h5>
               <p><em>Desarrollo Full Stack</em></p>
-              <ul class="text-muted small">
+              <ul class="--text-muted small">
                 <li>Motor de búsqueda geográfico en Java y API REST sobre Apache Tomcat.</li>
                 <li>Panel CMS para comerciantes y frontend reactivo con Alpine.js.</li>
               </ul>
@@ -700,15 +701,15 @@
               <!-- Formulario de envío seguro generado por JS -->
               <form id="secureContactForm" onsubmit="handleContactSubmit(event)">
                 <div class="mb-3">
-                  <label for="senderName" class="form-label text-muted small">Tu Nombre / Empresa</label>
+                  <label for="senderName" class="form-label --text-muted small">Tu Nombre / Empresa</label>
                   <input type="text" class="form-control form-control-custom" id="senderName" required placeholder="Ej. Maria Lopez">
                 </div>
                 <div class="mb-3">
-                  <label for="senderSubject" class="form-label text-muted small">Asunto</label>
+                  <label for="senderSubject" class="form-label --text-muted small">Asunto</label>
                   <input type="text" class="form-control form-control-custom" id="senderSubject" required placeholder="Propuesta de proyecto / Consulta">
                 </div>
                 <div class="mb-3">
-                  <label for="senderMessage" class="form-label text-muted small">Mensaje</label>
+                  <label for="senderMessage" class="form-label --text-muted small">Mensaje</label>
                   <textarea class="form-control form-control-custom" id="senderMessage" rows="4" required placeholder="Escribe tu mensaje aquí..."></textarea>
                 </div>
                 <button type="submit" class="btn-custom w-100 py-3"><i class="bi bi-send me-2"></i>Enviar Mensaje Protegido</button>
@@ -724,27 +725,27 @@
                   <div class="text-info fs-3 me-3"><i class="bi bi-linkedin"></i></div>
                   <div>
                     <h6 class="text-white mb-0">LinkedIn</h6>
-                    <a href="https://linkedin.com/in/jon-jonathan-arias" target="_blank" class="text-muted text-decoration-none small">linkedin.com/in/jon-jonathan-arias</a>
+                    <a href="https://linkedin.com/in/jon-jonathan-arias" target="_blank" class="--text-muted text-decoration-none small">linkedin.com/in/jon-jonathan-arias</a>
                   </div>
                 </div>
                 <div class="d-flex align-items-center mb-4">
                   <div class="text-info fs-3 me-3"><i class="bi bi-github"></i></div>
                   <div>
                     <h6 class="text-white mb-0">GitHub</h6>
-                    <a href="https://github.com/jonjonathanarias" target="_blank" class="text-muted text-decoration-none small">github.com/jonjonathanarias</a>
+                    <a href="https://github.com/jonjonathanarias" target="_blank" class="--text-muted text-decoration-none small">github.com/jonjonathanarias</a>
                   </div>
                 </div>
                 <div class="d-flex align-items-center mb-4">
                   <div class="text-info fs-3 me-3"><i class="bi bi-envelope-shield"></i></div>
                   <div>
                     <h6 class="text-white mb-0">Correo Electrónico (Anti-Spam)</h6>
-                    <span class="text-muted small">Protegido por codificación criptográfica de clientes de correo.</span>
+                    <span class="--text-muted small">Protegido por codificación criptográfica de clientes de correo.</span>
                   </div>
                 </div>
               </div>
 
               <div class="p-3 border border-secondary rounded bg-dark">
-                <small class="text-muted"><i class="bi bi-lock me-1"></i> Este sitio no expone correos en texto plano ni ejecuta scripts vulnerables de formularios abiertos.</small>
+                <small class="--text-muted"><i class="bi bi-lock me-1"></i> Este sitio no expone correos en texto plano ni ejecuta scripts vulnerables de formularios abiertos.</small>
               </div>
             </div>
           </div>
