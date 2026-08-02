@@ -20,344 +20,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <style>
-    :root {
-      --primary-color: #0ea5e9;
-      --primary-hover: #0284c7;
-      --bg-dark: #0f172a;
-      --bg-card: #1e293b;
-      --text-main: #f8fafc;
-      --text-muted: #ffff;
-      --border-color: #334155;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
-
-    code, pre, .tech-badge {
-      font-family: 'Fira Code', monospace;
-    }
-
-    /* Header & Navigation */
-    #header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 300px;
-      transition: all ease-in-out 0.5s;
-      z-index: 9997;
-      padding: 0 15px;
-      background: #090d16;
-      overflow-y: auto;
-      border-right: 1px solid var(--border-color);
-    }
-
-    .profile img {
-      margin: 15px auto;
-      display: block;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 3px solid var(--primary-color);
-      object-fit: contain;
-      object-position: ;
-    }
-
-    .profile h1 {
-      font-size: 22px;
-      margin: 0;
-      padding: 0;
-      font-weight: 700;
-      text-align: center;
-      color: #fff;
-    }
-
-    .profile .social-links a, .profile .social-links button {
-      font-size: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #1e293b;
-      color: #fff;
-      margin-right: 6px;
-      border-radius: 50%;
-      border: none;
-      width: 38px;
-      height: 38px;
-      transition: 0.3s;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .profile .social-links a:hover, .profile .social-links button:hover {
-      background: var(--primary-color);
-      color: #fff;
-    }
-
-    .nav-menu * {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .nav-menu > ul > li {
-      position: relative;
-      white-space: nowrap;
-    }
-
-    .nav-menu a, .nav-menu a:focus {
-      display: flex;
-      align-items: center;
-      color: var(--text-muted);
-      padding: 12px 15px;
-      margin-bottom: 8px;
-      transition: 0.3s;
-      font-size: 15px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    .nav-menu a i {
-      font-size: 20px;
-      padding-right: 12px;
-      color: var(--text-muted);
-    }
-
-    .nav-menu a:hover, .nav-menu .active, .nav-menu .active:focus {
-      text-decoration: none;
-      color: #fff;
-      background: var(--primary-color);
-    }
-
-    .nav-menu a:hover i, .nav-menu .active i {
-      color: #fff;
-    }
-
-    /* Main Content Area */
-    #main {
-      margin-left: 300px;
-    }
-
-    @media (max-width: 991px) {
-      #header {
-        left: -300px;
-      }
-      #header.header-show {
-        left: 0;
-      }
-      #main {
-        margin-left: 0;
-      }
-    }
-
-    /* Hero Section */
-    #hero {
-      width: 100%;
-      height: 100vh;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(9, 13, 22, 0.98)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=80') center center;
-      background-size: cover;
-      position: relative;
-      padding: 0 15px;
-    }
-
-    #hero h1 {
-      margin: 0 0 10px 0;
-      font-size: 52px;
-      font-weight: 700;
-      line-height: 56px;
-      color: #fff;
-    }
-
-    #hero p {
-      color: var(--text-muted);
-      margin-bottom: 30px;
-      font-size: 24px;
-    }
-
-    #hero p span {
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 4px;
-    }
-
-    .btn-custom {
-      background: var(--primary-color);
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-      display: inline-block;
-      margin-right: 12px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-custom:hover {
-      background: var(--primary-hover);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline-custom {
-      border: 2px solid var(--border-color);
-      color: var(--text-main);
-      padding: 10px 26px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-      display: inline-block;
-    }
-
-    .btn-outline-custom:hover {
-      border-color: var(--primary-color);
-      color: var(--primary-color);
-    }
-
-    /* Sections General */
-    section {
-      padding: 80px 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .section-title {
-      padding-bottom: 30px;
-    }
-
-    .section-title h2 {
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-      position: relative;
-      color: #fff;
-    }
-
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 50px;
-      height: 3px;
-      background: var(--primary-color);
-      bottom: 0;
-      left: 0;
-    }
-
-    .section-title p {
-      margin-bottom: 0;
-      color: var(--text-muted);
-    }
-
-    /* Cards & Badges */
-    .custom-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 25px;
-      height: 100%;
-      transition: all 0.3s ease;
-    }
-
-    .custom-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary-color);
-    }
-
-    .tech-badge {
-      background: rgba(14, 165, 233, 0.1);
-      color: var(--primary-color);
-      border: 1px solid rgba(14, 165, 233, 0.2);
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      display: inline-block;
-      margin-right: 6px;
-      margin-bottom: 8px;
-    }
-
-    /* Timeline Resume */
-    .resume-item {
-      padding: 0 0 20px 20px;
-      margin-top: -2px;
-      border-left: 2px solid var(--border-color);
-      position: relative;
-    }
-
-    .resume-item::before {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-radius: 50px;
-      left: -8px;
-      top: 0;
-      background: var(--bg-dark);
-      border: 2px solid var(--primary-color);
-    }
-
-    .resume-item h4 {
-      line-height: 18px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .resume-item h5 {
-      font-size: 13px;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 4px 12px;
-      display: inline-block;
-      font-weight: 600;
-      margin-bottom: 10px;
-      border-radius: 4px;
-      color: var(--primary-color);
-    }
-
-    .form-control-custom {
-      background-color: rgba(15, 23, 42, 0.8);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      border-radius: 8px;
-      padding: 12px 15px;
-    }
-
-    .form-control-custom:focus {
-      background-color: rgba(15, 23, 42, 1);
-      border-color: var(--primary-color);
-      color: var(--text-main);
-      box-shadow: none;
-    }
-
-    /* Mobile Nav Toggle */
-    .mobile-nav-toggle {
-      position: fixed;
-      right: 15px;
-      top: 15px;
-      z-index: 9998;
-      border: 0;
-      font-size: 24px;
-      transition: all 0.4s;
-      outline: none !important;
-      background-color: var(--primary-color);
-      color: #fff;
-      width: 40px;
-      height: 40px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 
 <body>
@@ -404,12 +67,27 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-center">
       <div class="container" data-aos="fade-up">
-        <span class="tech-badge mb-2">DISPONIBLE PARA NUEVOS DESAFÍOS</span>
-        <h1>Jon Jonathan Arias</h1>
-        <p>Especializado en <span id="typed-text">C# (.NET), Java, Python y Frontend</span></p>
-        <div class="mt-4">
-          <a href="#projects" class="btn-custom"><i class="bi bi-folder-check me-2"></i>Ver Proyectos</a>
-          <a href="#contact" class="btn-outline-custom"><i class="bi bi-chat-dots me-2"></i>Contactar</a>
+        <span class="tech-badge mb-3">
+          <i class="bi bi-patch-check-fill me-1"></i> DISPONIBLE PARA DESARROLLAR NUEVOS PROYECTOS 
+        </span>
+        
+        <h1 class="display-4 fw-bold text-white mb-2">Jon Jonathan Arias</h1>
+        
+        <h2 class="h4 text-info fw-semibold mb-3">
+          Técnico Superior en Desarrollo Web & Aplicaciones Digitales
+        </h2>
+        
+        <p class="lead text-light max-w-700">
+          Especializado en la creación de soluciones integrales <strong>Full Stack</strong>: interfaces de usuario en <strong>Frontend</strong>, arquitectura lógica en <strong>Backend</strong> e integración eficiente de <strong>APIs REST</strong>.
+        </p>
+
+        <div class="mt-4 pt-2">
+          <a href="#projects" class="btn-custom me-2">
+            <i class="bi bi-folder-check me-2"></i>Ver Proyectos
+          </a>
+          <a href="#contact" class="btn-outline-custom">
+            <i class="bi bi-chat-dots me-2"></i>Contactar
+          </a>
         </div>
       </div>
     </section>
@@ -438,14 +116,45 @@
 
           <div class="col-lg-5">
             <div class="custom-card">
-              <h4 class="text-white mb-3"><i class="bi bi-info-circle text-info me-2"></i>Información Clave</h4>
-              <ul class="list-unstyled --text-muted mb-0">
-                <li class="mb-2"><strong class="text-white">Ubicación:</strong> Argentina</li>
-                <li class="mb-2"><strong class="text-white">Título:</strong> Técnico Superior en Dev Web</li>
-                <li class="mb-2"><strong class="text-white">Contacto:</strong> Opciones protegidas contra Spam</li>
-                <li class="mb-2"><strong class="text-white">Idiomas:</strong> Español (Nativo), Inglés (B2), Portugués (B2)</li>
-                <li class="mb-2"><strong class="text-white">Intereses:</strong> IA, Diseño Gráfico, Música, Fotografía</li>
-                <li><strong class="text-white">Modalidad:</strong> Remoto / Híbrido / Presencial</li>
+              <h4 class="text-white mb-3">
+                <i class="bi bi-person-badge text-info me-2"></i>Perfil Profesional
+              </h4>
+              <ul class="list-unstyled text-muted mb-0">
+                <li class="mb-3 d-flex align-items-start">
+                  <i class="bi bi-mortarboard text-info me-2 mt-1"></i>
+                  <div>
+                    <strong class="text-white d-block">Formación Académica:</strong>
+                    <span class="small text-light">Técnico Superior en Desarrollo Web y Aplicacioness Digitales</span>
+                  </div>
+                </li>
+                <li class="mb-3 d-flex align-items-start">
+                  <i class="bi bi-geo-alt text-info me-2 mt-1"></i>
+                  <div>
+                    <strong class="text-white d-block">Ubicación:</strong>
+                    <span class="small text-light">Córdoba, Argentina</span>
+                  </div>
+                </li>
+                <li class="mb-3 d-flex align-items-start">
+                  <i class="bi bi-laptop text-info me-2 mt-1"></i>
+                  <div>
+                    <strong class="text-white d-block">Disponibilidad / Modalidad:</strong>
+                    <span class="small text-light">Remoto (Global) / Presencial / Híbrido</span>
+                  </div>
+                </li>
+                <li class="mb-3 d-flex align-items-start">
+                  <i class="bi bi-translate text-info me-2 mt-1"></i>
+                  <div>
+                    <strong class="text-white d-block">Idiomas:</strong>
+                    <span class="small text-light">Español (Nativo) · Inglés (B2) · Portugués (B2)</span>
+                  </div>
+                </li>
+                <li class="mb-0 d-flex align-items-start">
+                  <i class="bi bi-palette text-info me-2 mt-1"></i>
+                  <div>
+                    <strong class="text-white d-block">Enfoque Técnico & Diseño:</strong>
+                    <span class="small text-light">Diseño UI/UX, Sistemas Desktop, Arquitectura REST & Full Stack</span>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -467,8 +176,8 @@
 
           <div class="col-md-6 col-lg-3">
             <div class="custom-card">
-              <div class="text-info fs-2 mb-2"><i class="bi bi-layout-wysiwyg"></i></div>
-              <h5 class="text-white">Frontend</h5>
+              <div class="text-info fs-2 mb-2"><i class="bi bi-display"></i></div>
+              <h5 class="text-white">Frontend & UI/GUI</h5>
               <p class="--text-muted small">Maquetación responsiva, interfaces dinámicas y reacitvas.</p>
               <div>
                 <span class="tech-badge">Angular</span>
@@ -476,6 +185,8 @@
                 <span class="tech-badge">Bootstrap</span>
                 <span class="tech-badge">Tailwind CSS</span>
                 <span class="tech-badge">Alpine.js</span>
+                <span class="tech-badge">WinForms (C#)</span>
+                <span class="tech-badge">Guna UI</span>
               </div>
             </div>
           </div>
@@ -577,7 +288,9 @@
                 Sistema de gestión gastronómica integral en C# y SQL Server. Módulo de ventas, vinculación con emisión automática de comandas en cocina y arqueo de caja.
               </p>
               <div class="mb-3">
-                <span class="tech-badge">C#</span>
+                <span class="tech-badge">C# (.NET)</span>
+                <span class="tech-badge">WinForms / GUI</span>
+                <span class="tech-badge">Guna UI</span>
                 <span class="tech-badge">Visual Studio</span>
                 <span class="tech-badge">SQL Server</span>
               </div>
@@ -758,9 +471,9 @@
   </main>
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="py-4 text-center text-muted border-top border-secondary">
+  <footer id="footer" class="p-4 text-center text-light border-top border-secondary">
     <div class="container">
-      <small>&copy; Jon Jonathan Arias - Técnico Superior en Desarrollo Web. Alojado en GitHub Pages.</small>
+      <small>&copy; Jon Jonathan Arias - Técnico Superior en Desarrollo Web.</small>
     </div>
   </footer>
 
