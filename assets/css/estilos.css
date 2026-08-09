@@ -545,3 +545,35 @@
       border-radius: 50%;
       cursor: pointer;
     }
+
+
+    /* Ocultar el menú lateral por defecto en pantallas pequeñas */
+    @media (max-width: 1199px) {
+      #header {
+        left: -300px; /* Desplaza el sidebar fuera de la pantalla */
+        transition: all 0.3s ease-in-out;
+        z-index: 9999;
+        width: 300px;
+      }
+
+      /* Clase que activa la visibilidad del sidebar al tocar el botón hamburguesa */
+      #header.header-show {
+        left: 0;
+      }
+
+      /* Capa oscura de fondo al abrir el menú en mobile (Opcional pero recomendado) */
+      .mobile-nav-active body {
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: 576px) {
+      #header .mt-auto {
+        flex-direction: column !important;
+      }
+      
+      #header .mt-auto a {
+        width: 100% !important;
+        text-align: center;
+      }
+    }

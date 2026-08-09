@@ -810,6 +810,32 @@
         }
       });
     });
+
+    //header-slow
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.addEventListener('click', function() {
+          document.querySelector('#header').classList.toggle('header-show');
+          this.classList.toggle('bi-list');
+          this.classList.toggle('bi-x'); // Cambia el icono a una 'X' al abrir
+        });
+      }
+
+      // Cerrar el menú automáticamente al hacer clic en un enlace de navegación (en mobile)
+      document.querySelectorAll('#navbar a').forEach(navLink => {
+        navLink.addEventListener('click', () => {
+          if (document.querySelector('#header').classList.contains('header-show')) {
+            document.querySelector('#header').classList.remove('header-show');
+            if (mobileNavToggleBtn) {
+              mobileNavToggleBtn.classList.add('bi-list');
+              mobileNavToggleBtn.classList.remove('bi-x');
+            }
+          }
+        });
+      });
+    });
     
   </script>
 
