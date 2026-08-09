@@ -21,6 +21,9 @@
 
   <!-- Template Main CSS File -->
   <link rel="stylesheet" href="assets/css/estilos.css">
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -365,7 +368,7 @@
               <!-- Botones estandarizados dobles -->
               <div class="mt-auto d-flex gap-2">
                 <a href="https://github.com/jonjonathanarias/popus_pizzerias" target="_blank" class="btn btn-sm btn-outline-custom w-50 text-center">
-                  <i class="bi bi-github me-1"></i> Código
+                  <i class="bi bi-github me-1"></i> Ver repositorio
                 </a>
                 <a href="https://github.com/jonjonathanarias/popus_pizzerias/releases" target="_blank" class="btn btn-sm btn-outline-custom w-50 text-center">
                   <i class="bi bi-download me-1"></i> Demo (.exe)
@@ -559,21 +562,38 @@
             <div class="custom-card">
               <h4 class="text-white mb-4"><i class="bi bi-shield-check text-info me-2"></i>Envío de Mensaje Directo</h4>
               
-              <!-- Formulario de envío seguro generado por JS -->
+              <!-- Alerta de éxito/error -->
+              <div id="contactAlert" class="alert d-none mb-3" role="alert"></div>
+
+              <!-- Formulario de contacto -->
               <form id="secureContactForm" onsubmit="handleContactSubmit(event)">
+                
+                <!-- Campo Honeypot para despistar bots (Anti-Spam) -->
+                <input type="text" id="honeypot" name="user_bot_check" style="display:none !important;" tabindex="-1" autocomplete="off">
+
                 <div class="mb-3">
-                  <label for="senderName" class="form-label --text-muted small">Tu Nombre / Empresa</label>
-                  <input type="text" class=" form-control form-control-custom " id="senderName" required placeholder="Ej. Maria Lopez">
+                  <label for="senderName" class="form-label text-muted small">Tu Nombre / Empresa</label>
+                  <input type="text" class="form-control form-control-custom" id="senderName" name="from_name" required placeholder="Ej. Maria Lopez">
                 </div>
+
                 <div class="mb-3">
-                  <label for="senderSubject" class="form-label --text-muted small">Asunto</label>
-                  <input type="text" class="form-control form-control-custom --text-main" id="senderSubject" required placeholder="Propuesta de proyecto / Consulta">
+                  <label for="senderEmail" class="form-label text-muted small">Tu Correo Electrónico</label>
+                  <input type="email" class="form-control form-control-custom" id="senderEmail" name="from_email" required placeholder="ejemplo@correo.com">
                 </div>
+
                 <div class="mb-3">
-                  <label for="senderMessage" class="form-label --text-muted small">Mensaje</label>
-                  <textarea class="form-control form-control-custom --text-main" id="senderMessage" rows="4" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                  <label for="senderSubject" class="form-label text-muted small">Asunto</label>
+                  <input type="text" class="form-control form-control-custom" id="senderSubject" name="subject" required placeholder="Propuesta de proyecto / Consulta">
                 </div>
-                <button type="submit" class="btn-custom w-100 py-3"><i class="bi bi-send me-2"></i>Enviar Mensaje</button>
+
+                <div class="mb-3">
+                  <label for="senderMessage" class="form-label text-muted small">Mensaje</label>
+                  <textarea class="form-control form-control-custom" id="senderMessage" name="message" rows="4" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+
+                <button type="submit" id="btnSubmit" class="btn-custom w-100 py-3">
+                  <i class="bi bi-send me-2"></i>Enviar Mensaje
+                </button>
               </form>
             </div>
           </div>
@@ -622,24 +642,52 @@
 
   <!-- Anti-Spam & Navigation Script -->
   <script>
-    // Configuración ofuscada de email para prevenir ciberataques y scrapers
-    const user = "jonjonathanarias1";
-    const domain = "gmail.com";
+    // Inicializar EmailJS con tu Public Key
+    (function() {
+      emailjs.init("eGFEOpbKyzXnRq8Lo"); // Public Key de EmailJS
+    })();
 
-    function sendMail() {
-      window.location.href = `mailto:${user}@${domain}`;
+    async function handleContactSubmit(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const btnSubmit = document.getElementById('btnSubmit');
+
+      // 1. Verificación Honeypot Anti-Spam
+      const botCheck = document.getElementById('honeypot').value;
+      if (botCheck !== "") {
+        // Si el bot llenó el campo oculto, simula éxito para no dar pistas
+        showAlert('¡Mensaje enviado con éxito!', 'alert-success');
+        form.reset();
+        return;
+      }
+
+      // 2. Feedback visual en el botón
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Enviando...`;
+
+      // 3. Envío seguro mediante EmailJS
+      const serviceID = "service_b9gafiy";   // Service ID
+      const templateID = "template_81wfh71"; // Reemplazar con tu Template ID
+
+      try {
+        await emailjs.sendForm(serviceID, templateID, form);
+        showAlert('¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.', 'alert-success');
+        form.reset();
+      } catch (error) {
+        showAlert('Ocurrió un problema al enviar el mensaje. Inténtalo de nuevo.', 'alert-danger');
+        console.error('EmailJS Error:', error);
+      } finally {
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = `<i class="bi bi-send me-2"></i>Enviar Mensaje`;
+      }
     }
 
-    function handleContactSubmit(event) {
-      event.preventDefault();
-      const name = document.getElementById('senderName').value;
-      const subject = document.getElementById('senderSubject').value;
-      const message = document.getElementById('senderMessage').value;
-
-      const fullSubject = encodeURIComponent(`[Contacto Web] ${subject} - De: ${name}`);
-      const fullBody = encodeURIComponent(`Hola Jon,\n\n${message}\n\nAtentamente,\n${name}`);
-
-      window.location.href = `mailto:${user}@${domain}?subject=${fullSubject}&body=${fullBody}`;
+    function showAlert(message, typeClass) {
+      const alertBox = document.getElementById('contactAlert');
+      alertBox.className = `alert ${typeClass} text-center py-2 px-3 small rounded mb-3`;
+      alertBox.textContent = message;
+      alertBox.classList.remove('d-none');
     }
 
     //Funcion para el modal
