@@ -484,19 +484,45 @@
       color: var(--primary-color);
     }
 
+    /* Estilos para el formulario en modo oscuro */
     .form-control-custom {
-      background-color: rgba #ffff;
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
+      background-color: #0f172a !important; /* Fondo oscuro acorde a la tarjeta */
+      border: 1px solid #1e293b !important;
+      color: #f8fafc !important; /* Texto blanco/claro siempre visible */
       border-radius: 8px;
-      padding: 12px 15px;
+      padding: 12px 16px;
+      transition: all 0.3s ease;
     }
 
+    /* Color del texto de sugerencia (Placeholder) */
+    .form-control-custom::placeholder {
+      color: #64748b !important;
+      opacity: 1;
+    }
+
+    /* Estado al enfocar o hacer clic en un input */
     .form-control-custom:focus {
-      background-color: #0ea5e9;
-      border-color: var(--primary-color);
-      color: var(--text-main);
-      box-shadow: none;
+      background-color: #0f172a !important;
+      color: #ffffff !important;
+      border-color: #0ea5e9 !important; /* Borde azul cyan al enfocar */
+      box-shadow: 0 0 0 0.25rem rgba(14, 165, 233, 0.25) !important;
+      outline: none;
+    }
+    /* Prevenir que el autocompletado de Chrome cambie el fondo a azul o blanco */
+    .form-control-custom:-webkit-autofill,
+    .form-control-custom:-webkit-autofill:hover, 
+    .form-control-custom:-webkit-autofill:focus {
+      -webkit-text-fill-color: #ffffff !important;
+      -webkit-box-shadow: 0 0 0px 1000px #0f172a inset !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    /* Estilo para los títulos sobre los inputs */
+    .form-label-custom {
+      color: #94a3b8 !important; /* Color gris claro legible */
+      font-weight: 500;
+      margin-bottom: 6px;
+      display: block;
     }
 
     /* Mobile Nav Toggle */
