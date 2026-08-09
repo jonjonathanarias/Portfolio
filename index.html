@@ -29,10 +29,10 @@
   <button type="button" class="mobile-nav-toggle d-lg-none" id="mobileToggle"><i class="bi bi-list"></i></button>
 
   <!-- ======= Header Sidebar ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
+  <header id="header" class="position-fixed top-0 start-0 bottom-0 overflow-y-auto">
+    <div class="d-flex flex-column min-vh-100 p-3">
 
-      <div class="profile mt-4">
+      <div class="profile mt-2">
         <img src="assets/img/me.jpg" alt="Jon Jonathan Arias" class="img-fluid rounded-circle">
         <h1 class="mt-3"><a href="index.html" class="text-white text-decoration-none">Jon Jonathan Arias</a></h1>
         <p class="text-center --text-muted small mt-1">Técnico Superior En Desarrollo Web</p>
@@ -54,9 +54,15 @@
         </ul>
       </nav>
 
-      <div class="mt-auto mb-4 text-center">
-        <a href="Curriculum-Vitae- Arias-Jon-2026.pdf" download="Curriculum-Vitae- Arias-Jon-2026.pdf" class="btn btn-sm btn-outline-custom w-100">
-          <i class="bi bi-file-earmark-arrow-down me-1"></i> Descargar CV
+      <div class="mt-auto pt-4 pb-2 d-flex gap-2">
+        <!-- Abrir en línea (Google Drive) -->
+        <a href="https://drive.google.com/file/d/1VVLKbBzwM4UH4rg1sHsi0IK07VV4pfbD/view?usp=sharing" target="_blank" class="btn btn-sm btn-outline-custom w-50" title="Ver en línea">
+          <i class="bi bi-eye me-1"></i> Ver Curriculum Vitae
+        </a>
+        
+        <!-- Descargar archivo local del repositorio -->
+        <a href="Curriculum-Vitae- Arias-Jon-2026.pdf" download="Curriculum-Vitae- Arias-Jon-2026.pdf" class="btn btn-sm btn-custom w-50" title="Descargar PDF">
+          <i class="bi bi-download me-1"></i> Descargar CV-PDF
         </a>
       </div>
 
@@ -247,77 +253,176 @@
       </div>
     </section>
 
-    <!-- ======= Projects Section ======= -->
+   <!-- ======= Projects Section ======= -->
     <section id="projects" class="projects">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Proyectos Destacados</h2>
-          <p>Casos de estudio reales donde aplico mis conocimientos para crear soluciones funcionales y escalables.</p>
+          <p>Sistemas y plataformas desarrollados de principio a fin, enfocados en la eficiencia, usabilidad e integración funcional para clientes y usuarios finales.</p>
         </div>
 
         <div class="row g-4">
 
           <!-- Covacha Sala -->
           <div class="col-lg-4 col-md-6">
-            <div class="custom-card d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="tech-badge">PLATAFORMA WEB</span>
-                <a href="https://covachasala.coop.ar" target="_blank" class="text-white fs-4"><i class="bi bi-box-arrow-up-right"></i></a>
+            <div class="custom-card d-flex flex-column h-100">
+              
+              <!-- Contenedor Hover Slider con Modal Trigger -->
+              <div class="hover-slider mb-3 rounded overflow-hidden position-relative cursor-pointer"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#imageModal" 
+                  onclick="openProjectModal([
+                    'assets/img/projects/covacha-preview.png', 
+                    'assets/img/projects/covacha-img-1.png', 
+                    'assets/img/projects/covacha-img-2.png',
+                    'assets/img/projects/covacha-img-3.png'
+                  ], 'Covacha Sala De Musica')">
+                
+                <img src="assets/img/projects/covacha-preview.png" class="slide-img img-1" alt="Covacha Vista 1">
+                <img src="assets/img/projects/covacha-img-1.png" class="slide-img img-2" alt="Covacha Vista 2">
+                <img src="assets/img/projects/covacha-img-2.png" class="slide-img img-3" alt="Covacha Vista 3">
+                <img src="assets/img/projects/covacha-img-3.png" class="slide-img img-4" alt="Covacha Vista 4">
+                
+                <div class="hover-dots position-absolute bottom-0 start-50 translate-middle-x mb-2 d-flex gap-1">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="img-overlay-icon"><i class="bi bi-arrows-angle-expand"></i></div>
               </div>
+
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="tech-badge">PLATAFORMA WEB</span>
+                <a href="https://covachasala.coop.ar" target="_blank" class="text-white fs-5"><i class="bi bi-box-arrow-up-right"></i></a>
+              </div>
+
               <h4 class="text-white">Covacha Sala</h4>
-              <p class="--text-muted small flex-grow-1">
+              <p class="text-light small flex-grow-1">
                 Landing page e integración de sistema de reservas para una cooperativa musical. Incluye interfaz de reserva de sala de ensayo y "pizarra editable" para novedades.
               </p>
+
               <div class="mb-3">
                 <span class="tech-badge">JavaScript</span>
                 <span class="tech-badge">HTML5 / CSS3</span>
                 <span class="tech-badge">Bootstrap</span>
               </div>
-              <a href="https://covachasala.coop.ar" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-globe me-1"></i> Visitar Sitio Web</a>
+
+              <!-- Botón estandarizado -->
+              <div class="mt-auto">
+                <a href="https://covachasala.coop.ar" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center">
+                  <i class="bi bi-globe me-1"></i> Visitar Sitio Web
+                </a>
+              </div>
+
             </div>
           </div>
 
           <!-- Popus Pizzeria -->
           <div class="col-lg-4 col-md-6">
-            <div class="custom-card d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="tech-badge">SISTEMA DESKTOP</span>
-                <a href="https://github.com/jonjonathanarias/popus_pizzerias" target="_blank" class="text-white fs-4"><i class="bi bi-github"></i></a>
+            <div class="custom-card d-flex flex-column h-100">
+              
+              <!-- Contenedor Hover Slider con Modal Trigger -->
+              <div class="hover-slider mb-3 rounded overflow-hidden position-relative cursor-pointer"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#imageModal" 
+                  onclick="openProjectModal([
+                    'assets/img/projects/popus-img-1.png', 
+                    'assets/img/projects/popus-img-2.png', 
+                    'assets/img/projects/popus-img-3.png'
+                  ], 'Popus Pizzería')">
+                
+                <img src="assets/img/projects/popus-img-1.png" class="slide-img img-1" alt="Popus Vista 1">
+                <img src="assets/img/projects/popus-img-2.png" class="slide-img img-2" alt="Popus Vista 2">
+                <img src="assets/img/projects/popus-img-3.png" class="slide-img img-3" alt="Popus Vista 3">
+                
+                <div class="hover-dots position-absolute bottom-0 start-50 translate-middle-x mb-2 d-flex gap-1">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="img-overlay-icon"><i class="bi bi-arrows-angle-expand"></i></div>
               </div>
+
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="tech-badge">SISTEMA DESKTOP</span>
+                <a href="https://github.com/jonjonathanarias/popus_pizzerias" target="_blank" class="text-white fs-5"><i class="bi bi-github"></i></a>
+              </div>
+
               <h4 class="text-white">Popus Pizzería</h4>
-              <p class="--text-muted small flex-grow-1">
-                Sistema de gestión gastronómica integral en C# y SQL Server. Módulo de ventas, vinculación con emisión automática de comandas en cocina y arqueo de caja.
+              <p class="text-light small flex-grow-1">
+                Sistema de gestión gastronómica en C#. Interfaz gráfica con Guna UI, módulo de ventas, emisión automática de comandas en cocina y arqueo de caja.
               </p>
+
               <div class="mb-3">
                 <span class="tech-badge">C# (.NET)</span>
-                <span class="tech-badge">WinForms / GUI</span>
+                <span class="tech-badge">WinForms</span>
                 <span class="tech-badge">Guna UI</span>
-                <span class="tech-badge">Visual Studio</span>
                 <span class="tech-badge">SQL Server</span>
               </div>
-              <a href="https://github.com/jonjonathanarias/popus_pizzerias" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-github me-1"></i> Ver Repositorio</a>
+
+              <!-- Botones estandarizados dobles -->
+              <div class="mt-auto d-flex gap-2">
+                <a href="https://github.com/jonjonathanarias/popus_pizzerias" target="_blank" class="btn btn-sm btn-outline-custom w-50 text-center">
+                  <i class="bi bi-github me-1"></i> Código
+                </a>
+                <a href="https://github.com/jonjonathanarias/popus_pizzerias/releases" target="_blank" class="btn btn-sm btn-outline-custom w-50 text-center">
+                  <i class="bi bi-download me-1"></i> Demo (.exe)
+                </a>
+              </div>
+
             </div>
           </div>
 
           <!-- Cercamio.ar -->
           <div class="col-lg-4 col-md-6">
-            <div class="custom-card d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="tech-badge">GEOLOCALIZACIÓN WEB</span>
-                <a href="https://cercamio.ar" target="_blank" class="text-white fs-4"><i class="bi bi-box-arrow-up-right"></i></a>
+            <div class="custom-card d-flex flex-column h-100">
+              
+              <!-- Imagen Preview con Modal Trigger -->
+              <!-- Contenedor Hover Slider con Modal Trigger -->
+              <div class="hover-slider mb-3 rounded overflow-hidden position-relative cursor-pointer"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#imageModal" 
+                  onclick="openProjectModal([
+                    'assets/img/projects/cercamio-preview.png',
+                  ], 'CercaMio ')">
+                
+                <img src="assets/img/projects/cercamio-preview.png" class="slide-img img-1" alt="CercaMio Vista 1">
+                
+                
+                <div class="hover-dots position-absolute bottom-0 start-50 translate-middle-x mb-2 d-flex gap-1">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="img-overlay-icon"><i class="bi bi-arrows-angle-expand"></i></div>
               </div>
+
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="tech-badge">GEOLOCALIZACIÓN WEB</span>
+                <a href="https://cercamio.ar" target="_blank" class="text-white fs-5"><i class="bi bi-box-arrow-up-right"></i></a>
+              </div>
+
               <h4 class="text-white">Cercamio.ar</h4>
-              <p class="--text-muted small flex-grow-1">
+              <p class="text-light small flex-grow-1">
                 Plataforma de geolocalización de ofertas con cálculo de radio de distancia en tiempo real, CMS autónomo para comercios y filtrado dinámico.
               </p>
+
               <div class="mb-3">
                 <span class="tech-badge">Java</span>
                 <span class="tech-badge">API REST</span>
                 <span class="tech-badge">Blade</span>
                 <span class="tech-badge">Alpine.js</span>
               </div>
-              <a href="https://cercamio.ar" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center"><i class="bi bi-globe me-1"></i> Visitar Sitio Web</a>
+
+              <!-- Botón estandarizado -->
+              <div class="mt-auto">
+                <a href="https://cercamio.ar" target="_blank" class="btn btn-sm btn-outline-custom w-100 text-center">
+                  <i class="bi bi-globe me-1"></i> Visitar Sitio Web
+                </a>
+              </div>
+
             </div>
           </div>
 
@@ -325,6 +430,47 @@
 
       </div>
     </section>
+
+    <!-- ======= Modal Reutilizable con Slider ======= -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark border-secondary shadow-lg">
+          
+          <!-- Encabezado -->
+          <div class="modal-header border-secondary py-2 px-3">
+            <h5 class="modal-title text-white fs-6" id="imageModalLabel">Vista previa</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <!-- Cuerpo del Modal -->
+          <div class="modal-body text-center p-2 p-md-3 bg-black rounded-bottom">
+            
+            <!-- Vista para 1 sola imagen -->
+            <div id="singleImageContainer" class="d-none">
+              <img src="" id="modalSingleImage" class="img-fluid rounded border border-secondary" alt="Preview Grande" style="max-height: 75vh; width: 100%; object-fit: contain;">
+            </div>
+
+            <!-- Slider/Carrusel para múltiples imágenes -->
+            <div id="modalCarousel" class="carousel slide d-none" data-bs-ride="false">
+              <div class="carousel-indicators" id="carouselIndicators"></div>
+              <div class="carousel-inner" id="carouselInner"></div>
+              
+              <!-- Botones de navegación del slider -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume">
@@ -498,6 +644,53 @@
       window.location.href = `mailto:${user}@${domain}?subject=${fullSubject}&body=${fullBody}`;
     }
 
+    //Funcion para el modal
+    function openProjectModal(images, title) {
+      document.getElementById('imageModalLabel').textContent = title || 'Vista Previa';
+      
+      const singleContainer = document.getElementById('singleImageContainer');
+      const carouselContainer = document.getElementById('modalCarousel');
+      const singleImg = document.getElementById('modalSingleImage');
+      const carouselInner = document.getElementById('carouselInner');
+      const carouselIndicators = document.getElementById('carouselIndicators');
+
+      // Limpiar contenido previo
+      carouselInner.innerHTML = '';
+      carouselIndicators.innerHTML = '';
+
+      if (images.length === 1) {
+        // Mostrar solo 1 imagen
+        singleImg.src = images[0];
+        singleContainer.classList.remove('d-none');
+        carouselContainer.classList.add('d-none');
+      } else {
+        // Mostrar Slider / Carrusel
+        singleContainer.classList.add('d-none');
+        carouselContainer.classList.remove('d-none');
+
+        images.forEach((src, index) => {
+          const isActive = index === 0 ? 'active' : '';
+
+          // Agregar indicadores (puntos inferiores)
+          carouselIndicators.innerHTML += `
+            <button type="button" data-bs-target="#modalCarousel" data-bs-slide-to="${index}" class="${isActive}" aria-current="${index === 0 ? 'true' : 'false'}"></button>
+          `;
+
+          // Agregar imágenes al carrusel
+          carouselInner.innerHTML += `
+            <div class="carousel-item ${isActive}">
+              <img src="${src}" class="img-fluid rounded border border-secondary" alt="Preview ${index + 1}" style="max-height: 75vh; width: 100%; object-fit: contain;">
+            </div>
+          `;
+        });
+
+        // Reiniciar la instancia del carrusel de Bootstrap
+        const carouselElement = document.getElementById('modalCarousel');
+        const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carouselElement);
+        carouselInstance.to(0);
+      }
+    }
+
     // Inicializar Animaciones
     AOS.init({
       duration: 800,
@@ -524,6 +717,7 @@
         }
       });
     });
+    
   </script>
 
 </body>
