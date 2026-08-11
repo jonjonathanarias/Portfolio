@@ -20,7 +20,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link rel="stylesheet" href="assets/css/estilos.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -29,10 +29,13 @@
 <body>
 
   <!-- Mobile Toggle Button -->
-  <button type="button" class="mobile-nav-toggle d-lg-none" id="mobileToggle"><i class="bi bi-list"></i></button>
+  <!-- Cambiar d-lg-none por d-xl-none -->
+  <button type="button" class="mb-5  mobile-nav-toggle d-xl-none" id="mobileToggle">
+    <i class="bi bi-list"></i>
+  </button>
 
   <!-- ======= Header Sidebar ======= -->
-  <header id="header" class="position-fixed top-0 start-0 bottom-0 overflow-y-auto">
+  <header id="header" >
     <div class="d-flex flex-column min-vh-100 p-3">
 
       <div class="profile mt-2">
@@ -71,6 +74,9 @@
 
     </div>
   </header>
+  <!-- Overlay para mobile -->
+  <div class="mobile-nav-overlay"></div>
+
 
   <!-- ======= Main Content Area ======= -->
   <main id="main">
@@ -683,161 +689,13 @@
     </div>
   </footer>
 
+  <!-- Anti-Spam & Navigation Script -->
+  <script src="assets/js/main.js"></script>
   <!-- Vendor JS Files -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- Anti-Spam & Navigation Script -->
-  <script>
-    // Inicializar EmailJS con tu Public Key
-    (function() {
-      emailjs.init("eGFEOpbKyzXnRq8Lo"); // Public Key de EmailJS
-    })();
-
-    async function handleContactSubmit(event) {
-      event.preventDefault();
-
-      const form = event.target;
-      const btnSubmit = document.getElementById('btnSubmit');
-
-      // 1. Verificación Honeypot Anti-Spam
-      const botCheck = document.getElementById('honeypot').value;
-      if (botCheck !== "") {
-        // Si el bot llenó el campo oculto, simula éxito para no dar pistas
-        showAlert('¡Mensaje enviado con éxito!', 'alert-success');
-        form.reset();
-        return;
-      }
-
-      // 2. Feedback visual en el botón
-      btnSubmit.disabled = true;
-      btnSubmit.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Enviando...`;
-
-      // 3. Envío seguro mediante EmailJS
-      const serviceID = "service_b9gafiy";   // Service ID
-      const templateID = "template_81wfh71"; // Reemplazar con tu Template ID
-
-      try {
-        await emailjs.sendForm(serviceID, templateID, form);
-        showAlert('¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.', 'alert-success');
-        form.reset();
-      } catch (error) {
-        showAlert('Ocurrió un problema al enviar el mensaje. Inténtalo de nuevo.', 'alert-danger');
-        console.error('EmailJS Error:', error);
-      } finally {
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = `<i class="bi bi-send me-2"></i>Enviar Mensaje`;
-      }
-    }
-
-    function showAlert(message, typeClass) {
-      const alertBox = document.getElementById('contactAlert');
-      alertBox.className = `alert ${typeClass} text-center py-2 px-3 small rounded mb-3`;
-      alertBox.textContent = message;
-      alertBox.classList.remove('d-none');
-    }
-
-    //Funcion para el modal
-    function openProjectModal(images, title) {
-      document.getElementById('imageModalLabel').textContent = title || 'Vista Previa';
-      
-      const singleContainer = document.getElementById('singleImageContainer');
-      const carouselContainer = document.getElementById('modalCarousel');
-      const singleImg = document.getElementById('modalSingleImage');
-      const carouselInner = document.getElementById('carouselInner');
-      const carouselIndicators = document.getElementById('carouselIndicators');
-
-      // Limpiar contenido previo
-      carouselInner.innerHTML = '';
-      carouselIndicators.innerHTML = '';
-
-      if (images.length === 1) {
-        // Mostrar solo 1 imagen
-        singleImg.src = images[0];
-        singleContainer.classList.remove('d-none');
-        carouselContainer.classList.add('d-none');
-      } else {
-        // Mostrar Slider / Carrusel
-        singleContainer.classList.add('d-none');
-        carouselContainer.classList.remove('d-none');
-
-        images.forEach((src, index) => {
-          const isActive = index === 0 ? 'active' : '';
-
-          // Agregar indicadores (puntos inferiores)
-          carouselIndicators.innerHTML += `
-            <button type="button" data-bs-target="#modalCarousel" data-bs-slide-to="${index}" class="${isActive}" aria-current="${index === 0 ? 'true' : 'false'}"></button>
-          `;
-
-          // Agregar imágenes al carrusel
-          carouselInner.innerHTML += `
-            <div class="carousel-item ${isActive}">
-              <img src="${src}" class="img-fluid rounded border border-secondary" alt="Preview ${index + 1}" style="max-height: 75vh; width: 100%; object-fit: contain;">
-            </div>
-          `;
-        });
-
-        // Reiniciar la instancia del carrusel de Bootstrap
-        const carouselElement = document.getElementById('modalCarousel');
-        const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carouselElement);
-        carouselInstance.to(0);
-      }
-    }
-
-    // Inicializar Animaciones
-    AOS.init({
-      duration: 800,
-      once: true
-    });
-
-    // Mobile Navbar Toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const header = document.getElementById('header');
-
-    mobileToggle.addEventListener('click', function() {
-      header.classList.toggle('header-show');
-      this.querySelector('i').classList.toggle('bi-list');
-      this.querySelector('i').classList.toggle('bi-x');
-    });
-
-    // Cierre automático de menú móvil
-    document.querySelectorAll('#navbar a').forEach(navLink => {
-      navLink.addEventListener('click', () => {
-        if (header.classList.contains('header-show')) {
-          header.classList.remove('header-show');
-          mobileToggle.querySelector('i').classList.add('bi-list');
-          mobileToggle.querySelector('i').classList.remove('bi-x');
-        }
-      });
-    });
-
-    //header-slow
-    document.addEventListener('DOMContentLoaded', () => {
-      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-      if (mobileNavToggleBtn) {
-        mobileNavToggleBtn.addEventListener('click', function() {
-          document.querySelector('#header').classList.toggle('header-show');
-          this.classList.toggle('bi-list');
-          this.classList.toggle('bi-x'); // Cambia el icono a una 'X' al abrir
-        });
-      }
-
-      // Cerrar el menú automáticamente al hacer clic en un enlace de navegación (en mobile)
-      document.querySelectorAll('#navbar a').forEach(navLink => {
-        navLink.addEventListener('click', () => {
-          if (document.querySelector('#header').classList.contains('header-show')) {
-            document.querySelector('#header').classList.remove('header-show');
-            if (mobileNavToggleBtn) {
-              mobileNavToggleBtn.classList.add('bi-list');
-              mobileNavToggleBtn.classList.remove('bi-x');
-            }
-          }
-        });
-      });
-    });
-    
-  </script>
+  
 
 </body>
 </html>
