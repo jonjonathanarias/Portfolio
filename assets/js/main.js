@@ -1,9 +1,9 @@
-// 1. Inicializar EmailJS con tu Public Key
+// Inicialización de EmailJS con tu Public Key
 (function () {
   emailjs.init("eGFEOpbKyzXnRq8Lo");
 })();
 
-// 2. Función para manejar el envío del formulario de contacto
+// Control del envío del formulario
 async function handleContactSubmit(event) {
   event.preventDefault();
 
@@ -38,7 +38,6 @@ async function handleContactSubmit(event) {
   }
 }
 
-// 3. Función auxiliar para mostrar alertas en pantalla
 function showAlert(message, typeClass) {
   const alertBox = document.getElementById('contactAlert');
   if (alertBox) {
