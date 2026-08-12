@@ -707,8 +707,7 @@
         list-style: none;
       }
 
-      .nav-menu a, 
-      .nav-menu a:focus {
+      .nav-menu a, .nav-menu a:focus {
         padding: 10px 15px;
         font-size: 1.05rem !important;
         display: flex;
