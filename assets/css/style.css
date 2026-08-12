@@ -434,8 +434,9 @@
     }
 
     .custom-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary-color);
+      background: rgba(24, 34, 60, 0.75) !important;
+      border-color: rgba(0, 180, 216, 0.35) !important;
+      box-shadow: 0 12px 40px 0 rgba(0, 180, 216, 0.15);
     }
 
     .tech-badge {
@@ -582,6 +583,28 @@
       box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
     }
 
+    /* Tarjetas de Servicios */
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 180, 216, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 180, 216, 0.15);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(0, 180, 216, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* Botón Flotante de WhatsApp */
     .whatsapp-float {
       position: fixed;
@@ -612,12 +635,98 @@
     /* Ajustes para pantallas pequeñas */
     @media (max-width: 1199px) {
       #header {
-        left: -300px !important; /* Esconde el menú completamente a la izquierda */
-        transition: left 0.3s ease-in-out;
+        position: fixed !important;
+        top: 0 !important;
+        left: -100vw !important; /* Escondido 100% a la izquierda */
+        width: 100vw !important;  /* Ocupa el 100% del ancho de la pantalla */
+        height: 100vh !important; /* Ocupa el 100% del alto de la pantalla */
+        height: 100dvh !important; /* Soporte moderno para barras de navegación móviles */
+        
+        background: rgba(11, 19, 43, 0.98) !important; /* Fondo oscuro semi-transparente */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        
+        z-index: 9998;
+        overflow-y: auto; /* Permite scroll solo dentro del menú si la pantalla es muy pequeña */
+        transition: left 0.3s ease-in-out !important;
+        
+        /* Centrado vertical del contenido del menú */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem 1.5rem;
       }
 
       #header.header-show {
         left: 0 !important; /* Muestra el menú cuando se hace clic en la hamburguesa */
+      }
+
+      body.mobile-nav-active {
+        overflow: hidden !important;
+      }
+      .mobile-nav-toggle {
+        z-index: 9999 !important; /* Garantiza que siempre quede arriba del menú abierto */
+      }
+
+      /* Escalar foto y textos para que no se vean gigantes */
+      #header .profile img {
+        margin: 15px auto;
+        display: block;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 4px solid var(--primary-color);
+        object-fit: contain; 
+        background-color: #d8c8b8; /* Un color similar a tu fondo para disimular los bordes */
+        padding: 4px;
+        box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
+      }
+
+      #header .profile h1 {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.25rem;
+      }
+
+      #header .profile .social-links a {
+        font-size: 1.1rem;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        margin: 0 4px;
+      }
+
+      /* 4. Lista de navegación compacta y legible */
+      .nav-menu {
+        width: 100%;
+        max-width: 320px; /* Limita el ancho para mantener el orden */
+        margin-top: 1rem;
+      }
+
+      .nav-menu ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      .nav-menu a, 
+      .nav-menu a:focus {
+        padding: 10px 15px;
+        font-size: 1.05rem !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+      }
+
+      .nav-menu a:hover,
+      .nav-menu .active {
+        background: rgba(0, 180, 216, 0.15);
+      }
+
+      /* Bloquear scroll de la página web al abrir */
+      body.mobile-nav-active {
+        overflow: hidden !important;
       }
 
       #main {

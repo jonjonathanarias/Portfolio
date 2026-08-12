@@ -1,3 +1,11 @@
+//Funcion de icono de contacto en header 
+function sendMail() {
+  const contactSection = document.getElementById('contact');
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 // Inicialización de EmailJS con tu Public Key
 (function () {
   emailjs.init("eGFEOpbKyzXnRq8Lo");
@@ -126,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileToggle && header) {
     mobileToggle.addEventListener('click', function () {
       header.classList.toggle('header-show');
+      document.body.classList.toggle('mobile-nav-active'); // Bloquea/Desbloquea el scroll de la página
 
       const icon = this.querySelector('i') || this;
       icon.classList.toggle('bi-list');
