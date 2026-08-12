@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Fondo Gradiente Oscuro -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b132b"/>
+      <stop offset="50%" stop-color="#1c2541"/>
+      <stop offset="100%" stop-color="#0b132b"/>
+    </linearGradient>
+
+    <!-- Gradiente Cyan para Destacados -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#90e0ef"/>
+    </linearGradient>
+
+    <!-- Patrón de Puntos Tecnológico de Fondo -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="#ffffff" opacity="0.1"/>
+    </pattern>
+  </defs>
+
+  <!-- Fondo base -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Brillo / Glow Cyan en la esquina derecha -->
+  <circle cx="1000" cy="150" r="300" fill="#00b4d8" opacity="0.15" filter="blur(60px)"/>
+
+  <!-- Contenedor Principal (Tarjeta Glassmorphism) -->
+  <rect x="80" y="80" width="1040" height="470" rx="24" fill="#ffffff" fill-opacity="0.03" stroke="#Para crear una imagen de vista previa **Open Graph (`og-preview.png`)** optimizada para redes sociales (WhatsApp, Twitter/X, LinkedIn, Facebook, Discord), sigue esta guía técnica y visual.
+
+---
+
+### Specifications del Archivo
+
+| Propiedad | Valor Recomendado |
+| :--- | :--- |
+| **Dimensiones** | `1200 x 630 px` (Relación de aspecto 1.91:1) |
+| **Formato** | PNG (recomendado para texto/logotipos) o JPG/WebP |
+| **Peso máximo** | Menor a 1 MB (idealmente `< 300 KB`) |
+| **Espacio de color** | sRGB |
+
+---
+
+### Estructura de Diseño Recomendada
+
+1. **Zona Segura (*Safe Zone*):** Mantén todos los textos, logotipos y elementos clave centrados con un margen interior (*padding*) de **60px a 80px**. Algunas aplicaciones aplican recortes o bordes redondeados.
+2. **Jerarquía Visual:**
+   * **Logo / Marca:** Arriba a la izquierda o centrado en la parte superior.
+   * **Título Principal:** Tipografía grande (48pt–64pt), en negrita y de alto contraste.
+   * **Subtítulo / Tagline:** Breve descripción del proyecto o valor (24pt–32pt).
+   * **Elemento Gráfico:** Captura de pantalla del producto, ilustración de fondo o patrón abstracto con opacidad baja.
+
+---
+
+### Código HTML para Integración
+
+Coloca estas etiquetas en el `<head>` de tu documento HTML. Asegúrate de usar la **URL absoluta** de la imagen:
+
+```html
+<!-- Open Graph / Facebook / LinkedIn / WhatsApp / Discord -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="[https://midominio.com/](https://midominio.com/)" />
+<meta property="og:title" content="Título de tu Sitio Web" />
+<meta property="og:description" content="Una breve descripción que complementa la vista previa." />
+<meta property="og:image" content="[https://midominio.com/og-preview.png](https://midominio.com/og-preview.png)" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Vista previa del sitio web" />
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="[https://midominio.com/](https://midominio.com/)" />
+<meta name="twitter:title" content="Título de tu Sitio Web" />
+<meta name="twitter:description" content="Una breve descripción que complementa la vista previa." />
+<meta name="twitter:image" content="[https://midominio.com/og-preview.png](https://midominio.com/og-preview.png)" />

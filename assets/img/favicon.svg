@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Fondo Gradiente Oscuro -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b132b" />
+      <stop offset="100%" stop-color="#1c2541" />
+    </linearGradient>
+
+    <!-- Gradiente Cyan Brillante para las letras -->
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00b4d8" />
+      <stop offset="100%" stop-color="#90e0ef" />
+    </linearGradient>
+  </defs>
+
+  <!-- Contenedor Base Cuadrado con Bordes Redondeados -->
+  <rect width="512" height="512" rx="110" fill="url(#bgGradient)" stroke="#00b4d8" stroke-width="12" stroke-opacity="0.3"/>
+
+  <!-- Logo Tipográfico: J A estilizado -->
+  <g fill="none" stroke="url(#brandGradient)" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Letra J -->
+    <path d="M 180 160 L 220 160 M 220 160 L 220 310 C 220 350 180 350 160 330" stroke-width="42" />
+    
+    <!-- Letra A (Estilo Código/Símbolo <) -->
+    <path d="M 280 340 L 330 160 L 380 340 M 298 280 L 362 280" stroke-width="42" />
+  </g>
+
+  <!-- Punto de acento tecnológico (Cyan Glowing Dot) -->
+  <circle cx="395" cy="160" r="22" fill="#00b4d8" />
+</svg>
